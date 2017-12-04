@@ -207,6 +207,14 @@ span {
   text-align: center;
 }
 
+.summary-skills {
+	display: flex;
+}
+
+.col-skills {
+	text-align: right;
+}
+
 /* Media queries to handle various device widths */
 
 @media only screen and (max-width: 1024px) {
@@ -231,6 +239,14 @@ span {
   .welcome-message {
     display: none;
   }
+
+  .summary-skills {
+	display: block;
+}
+
+.col-skills {
+		text-align: left;
+}
 }
 
 #map {
@@ -250,6 +266,15 @@ span {
   .biopic {
     display: block;
   }
+ 
+.summary-skills {
+	display: block;
+}
+
+.col-skills {
+		text-align: left;
+}
+
 }
 
 #role {
