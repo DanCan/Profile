@@ -64,13 +64,31 @@
    'jobs': [
      {
        'title': 'Engineer',
-       'employer': 'Apex',
+       'employer': 'Apex Learning',
        'url': 'https://www.apexlearning.com/',
        'years': '1.4',
        'location': 'Seattle, WA',
        'dates': 'Feb 2016 - Present',
-       'description': 'Lorem ipsum dolor sit amet, qualisque ullamcorper cu his, tale aperiri vituperata sit te, sed ea nobis nominavi accommodare. Ad sit vulputate argumentum. Ea duo alterum accommodare. Ad vix iusto gubergren, eos et minimum tacimates, ex cibo prodesset eos. No erat argumentum percipitur has, sanctus admodum at nec.'
-     },
+       'description': `
+			<div>
+				<h5>Software Engineer</h5>
+				<ul>
+					<li>Built improved UI and UX designs in online digital curriculum</li>
+					<li>Created Components to injest content to help teach for an array of students needs.</li>
+					<li>Collaborated in the development of upgrading legacy system.</li>
+					<li>Facilitated downloadable course materials and pipeline.</li>
+					<li>Used C# and SQL to maintain content creation of learning catalog.</li>
+					<li>Built a transformation app to update content for a new platform.</li>
+					<li>Wrote high quality code that is loosely coupled, easy to maintain, and testable.</li>
+					<li>Create/Extend technical documentation for internally developed libraries and frameworks</li>
+				</ul>
+			</div>
+			<div>
+				<ul>
+				</ul>
+			</div>
+			`
+     }, // TODO: Created Components ... expand on this.
      {
        'title': 'UI Programmer',
        'employer': 'Microsoft',

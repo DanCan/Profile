@@ -30,7 +30,7 @@ var HTMLwelcomeMsg = '<span class="welcome-message">%data%</span>';
 var HTMLskillsStart = '<h3 id="skills-h3">Skills and Frameworks at a Glance:</h3><div id="skills-container"><ul id="skills" class="container flex-wrap"></ul></div>';
 var HTMLskillsMore = '<li id="skills-more" class="white-text"><div class="row"><h4 class="skill-highlight">More:</h4></li></div>';
 var HTMLskills = '<span class="white-text">%data%</span>';
-var HTMLskillsAndFrameworks = '<li class="flex-item"><div class="row"><span class="col-lg-12 skill-highlight">%data%</span></div><div class="row summary-skills"><div class="col-lg-6 col-skills"><div class="inline skills"><h4>Skills</h4><div class="white-text">%dataSkills%</div></div></div><div class="col-lg-6"><div class="inline frameworks"><h4>Frameworks</h4><div class="white-text">%dataFrameworks%</div></div></div></div></li>';
+var HTMLskillsAndFrameworks = '<li class="flex-item border"><div class="row"><span class="col-lg-12 skill-highlight">%data%</span></div><div class="row summary-skills"><div class="col-lg-6 col-skills"><div class="inline skills"><h4>Skills</h4><div class="white-text">%dataSkills%</div></div></div><div class="col-lg-6"><div class="inline frameworks"><h4>Frameworks</h4><div class="white-text">%dataFrameworks%</div></div></div></div></li>';
 
 var HTMLworkStart = '<div class="work-entry"></div>';
 var HTMLworkEmployer = '<a href="#">%data%';

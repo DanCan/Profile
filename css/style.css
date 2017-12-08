@@ -318,3 +318,15 @@ span {
 	font-weight: bold;
 	text-align: center;
 }
+
+.border {
+    background-image: linear-gradient(to bottom, #333 40%, rgba(255, 255, 255, 0) 20%);
+    background-position: right;
+    background-size: 3px 3px;
+    background-repeat: repeat-y;
+}
+
+.work-entry ul {
+	list-style-type: circle;
+	padding: 0 8px
+}
