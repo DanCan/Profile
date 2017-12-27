@@ -8,7 +8,7 @@
      'mobile': '815-404-0425',
      'email': 'dancannova@gmail.com',
      'github': 'DanCan',
-     'twitter': 'CanOfNova',
+     'twitter': 'dancannova',
      'location': 'Seattle, WA'
    },
    'welcomeMessage': 'Welcome! I hope you enjoy your stay at my portfolio site.',
