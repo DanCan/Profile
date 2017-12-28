@@ -5,13 +5,13 @@
    'name': 'Daniel Cannova',
    'role': 'Engineer',
    'contacts': {
-     'mobile': '815-404-0425',
+     //'mobile': '815-404-0425',
      'email': 'dancannova@gmail.com',
      'github': 'DanCan',
      'twitter': 'dancannova',
      'location': 'Seattle, WA'
    },
-   'welcomeMessage': 'Welcome! I hope you enjoy your stay at my portfolio site.',
+   'welcomeMessage': 'Welcome! Below you will find quick viewings of my skills and framworks. Further down you will find more indepth explanation of jobs where I have used these skills.',
    'skills': [
 				[ 'Web Programming', 'HTML, CSS, JavaScript', 'Angular 4, Typescript, Jasmine, Koa'],
 				['Engineering', 'C#, SQL', 'Jenkins, AWS'], 
@@ -22,8 +22,7 @@
    'biopic': 'images/me.jpg',
    display: function() {
      // Head
-     $('#header').append(rd(HTMLheaderName, this.name));
-     $('#header').append(rd(HTMLheaderRole, this.role));
+     $('#header').append (rd (rd (HTMLheaderName_Role, this.name, 'Name') ,this.role, 'Role') );
 
      // Start
      $('#header').append(HTMLInfoStart);
@@ -70,9 +69,9 @@
        'location': 'Seattle, WA',
        'dates': 'Feb 2016 - Present',
        'description': `
-			<div>
-				<h5>Software Engineer</h5>
-				<ul>
+			<div class="row">
+				<div class="col-md-12"><div class="col-xs-12 col-md-8"><h5 class="inline-block">Software Engineer</h5><div class="inline-block offset work-skill-sub">Web Programming, UI/UX</div></div></div>
+				<div class="work-exp"><ul>
 					<li>Built improved UI and UX designs in online digital curriculum</li>
 					<li>Created Components to injest content to help teach for an array of students needs.</li>
 					<li>Collaborated in the development of upgrading legacy system.</li>
@@ -81,7 +80,7 @@
 					<li>Built a transformation app to update content for a new platform.</li>
 					<li>Wrote high quality code that is loosely coupled, easy to maintain, and testable.</li>
 					<li>Create/Extend technical documentation for internally developed libraries and frameworks</li>
-				</ul>
+				</ul></div>
 			</div>
 			<div>
 				<ul>
@@ -257,7 +256,10 @@ var projects = {
 };
 
 function rd(html, str, extra='') {
-  return html.replace('%data'+extra+'%', str);
+	if (str)
+		return html.replace('%data'+extra+'%', str);
+	
+	return $('');
 }
 
 function displayData() {

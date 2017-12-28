@@ -23,4 +23,4 @@ via github
 _|"""""|
 "`-0-0-'
 ```
-https://dancan.github.io/HTML_Resume_Project/
+https://dancan.github.io/Resume/

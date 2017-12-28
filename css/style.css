@@ -172,12 +172,14 @@ a {
 
 .flex-wrap {
   display: flex;
-  flex-wrap: wrap;
+  flex-wrap: unset;
   padding: 10px;
 }
 
 .center-content {
-  padding: 2.5% 5%;
+	padding: 2.5% 5%;
+	overflow: hidden;
+
 }
 
 #info .flex-item {
@@ -207,48 +209,6 @@ span {
   text-align: center;
 }
 
-.summary-skills {
-	display: flex;
-}
-
-.col-skills {
-	text-align: right;
-}
-
-/* Media queries to handle various device widths */
-
-@media only screen and (max-width: 1024px) {
-  #lets-connect {
-    margin-top: 5%;
-  }
-}
-
-@media only screen and (max-width:900px) {
-  .biopic {
-    width: 175px;
-  }
-}
-
-@media only screen and (max-width: 750px) {
-  #lets-connect {
-    margin-top: 10%;
-  }
-  .biopic {
-    width: 150px;
-  }
-  .welcome-message {
-    display: none;
-  }
-
-  .summary-skills {
-	display: block;
-}
-
-.col-skills {
-		text-align: left;
-}
-}
-
 #map {
   display: block;
   height: 100%;
@@ -261,21 +221,14 @@ span {
   padding-bottom: 5%;
 }
 
-@media only screen and (min-width: 750px) {
-  #skills-h3,
-  .biopic {
-    display: block;
-  }
- 
 .summary-skills {
-	display: block;
+	display: flex;
 }
 
 .col-skills {
-		text-align: left;
+	text-align: right;
 }
 
-}
 
 #role {
 	color: #ab7418;
@@ -327,6 +280,124 @@ span {
 }
 
 .work-entry ul {
-	list-style-type: circle;
+	list-style-type: circle;  
 	padding: 0 8px
 }
+
+.work-skill-sub {
+	font-size: 12px;
+	margin-bottom: 16px;
+}
+
+.work-exp {
+	margin-left: 48px;
+}
+
+.inline-block {
+	display: inline-block;
+}
+
+.offset {
+	margin-left: 5%;
+}
+
+/* Media queries to handle various device widths */
+
+@media only screen and (max-width: 1130px) {
+	#skills-more,
+	#skills .flex-item {
+		margin: 0 auto;
+		margin-bottom: 24px;
+	}
+}
+
+@media only screen and (max-width: 1024px) {
+  #lets-connect {
+    margin-top: 5%;
+  }
+
+	#skills-container {
+	   display: inherit;
+	}
+}
+
+@media only screen and (max-width:900px) {
+  .biopic {
+    width: 175px;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+	#lets-connect {
+		margin-top: 10%;
+	}
+
+	#skills-h3 {
+		margin-top: 50px;
+		margin-bottom: 20px;
+	}
+
+	.biopic {
+		width: 120px;
+	}
+	.welcome-message {
+		display: none;
+	}
+
+	.summary-skills {
+		display: block;
+	}
+
+	.col-skills {
+			text-align: left;
+	}
+	
+	.flex-wrap {
+	    flex-wrap: wrap;
+	}
+}
+
+@media only screen and (max-width: 682px) {
+	.flex-wrap {
+	    flex-wrap: wrap;
+	}
+}
+
+@media only screen and (max-width: 370px) {
+	#skills {
+		display: flex;
+		margin: auto;
+		padding: 0;
+	}
+}
+
+@media only screen and (min-width: 750px) {
+
+	#skills-h3,
+	.biopic {
+		display: block;
+	}
+ 
+	.summary-skills {
+		display: block;
+	}
+
+	.col-skills {
+			text-align: left;
+	}
+
+}
+
+@media only screen and (min-width: 1686px) {
+	.center-content {
+		padding: 2% calc(15vw);
+	}
+}
+
+@media only screen and (min-width: 1130px) {
+
+	.flex-wrap {
+		flex-wrap: wrap;
+	}
+}
+
