@@ -19,7 +19,7 @@
 				['Game Programming', 'Game Engine, Gameplay', 'Unity3D, ActionScript'],
 				'Fundamentals in C++'
 			],
-   'biopic': 'images/me.jpg',
+   'biopic': 'images/cropped/me.jpg',
    display: function() {
      // Head
      $('#header').append (rd (rd (HTMLheaderName_Role, this.name, 'Name') ,this.role, 'Role') );
@@ -131,16 +131,9 @@ var education = {
        'majors': ['Computer Science'],
        'dates': 'July 2006 - March 2009 : 2yr 8mo',
        'url': 'https://www.devry.edu/universities/illinois/tinley-park-campus.html'
-   },
-   {
-       'name': 'DeVry',
-       'location': 'Tinley Park, IL',
-       'degree': 'Bachelors in Computer Science focued on Game Development',
-       'majors': ['Computer Science'],
-       'dates': 'July 2006 - March 2009 : 2.6',
-       'url': 'https://www.devry.edu/universities/illinois/tinley-park-campus.html'
    }
  ],
+ //TODO: patterns course
  'onlineCourses': [
      {
        'title': 'Nano Degree',
@@ -225,12 +218,16 @@ var projects = {
         rd(HTMLprojectDescription, proj.description)
       );
 
-      // links
-      proj.images.forEach(function(link) {
-        $projectEntryLast.append(rd(HTMLprojectImage, link));
+	  
+      // links and images
+      $projectEntryLast.append(HTMLprojectImageContainer);
+	  $imageContainer = $('.project-image-container:last');
+	  proj.images.forEach(function(link) {
+        $imageContainer.append(rd(HTMLprojectImage, link));
       });
     });
   },
+  // TODO: HTML git hub & separate gamejam and course "prouds"
   'projects': [
     {
       'title': 'Illuminare: Spirit',
@@ -264,7 +261,7 @@ function rd(html, str, extra='') {
 
 function displayData() {
   bio.display();
-  work.display();
+  //work.display();
   projects.display();
   education.display();
 

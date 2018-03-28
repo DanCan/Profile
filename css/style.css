@@ -42,11 +42,6 @@ h6 {
   display: inline-block;
 }
 
-.image-restraint {
-  max-height: 300px;
-  margin: 0 auto;
-}
-
 h1 {
   font-size: 40px;
   color: #f5a623;
