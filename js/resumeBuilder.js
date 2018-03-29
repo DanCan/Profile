@@ -201,39 +201,55 @@ var education = {
 };
 
 var projects = {
+
   display: function() {
     var $projectEntryLast;
     var projectTitle;
-    this.projects.forEach(function(proj) {
-      // Start
-      $('#projects').append(HTMLprojectStart);
-      $projectEntryLast = $('.project-entry:last');
-      // Title
-      projectTitle = rd(HTMLprojectTitle, proj.title);
-      if (proj.titleLink) projectTitle = projectTitle.replace('#', proj.titleLink);
-
-      // Meat
-      $projectEntryLast.append(projectTitle,
-        rd(HTMLprojectDates, proj.dates),
-        rd(HTMLprojectDescription, proj.description)
-      );
-
-	  
-      // links and images
-      $projectEntryLast.append(HTMLprojectImageContainer);
-	  $imageContainer = $('.project-image-container:last');
-	  proj.images.forEach(function(link) {
-        $imageContainer.append(rd(HTMLprojectImage, link));
-      });
+    // Setup Project Start
+    $('#projects').append(HTMLprojectStart);
+    // Loop over side and course
+    $projectEntryLast = $('.side:last');
+    this.side.forEach((proj) => {
+      this.setupProject(proj, $projectEntryLast)
+    });
+    $projectEntryLast = $('.course:last');
+    this.course.forEach((proj) => {
+      this.setupProject(proj, $projectEntryLast)
     });
   },
+  //Helper functions
+  setupProject: function(proj, $projectEntryLast) {
+    // Start
+    //$('#projects').append(HTMLprojectStart);
+    //$projectEntryLast = $('.project-entry:last');
+    // Title
+    projectTitle = rd(HTMLprojectTitle, proj.title);
+    if (proj.titleLink) projectTitle = projectTitle.replace('#', proj.titleLink);
+
+    // Meat
+    $projectEntryLast.append(projectTitle,
+      rd(HTMLprojectDates, proj.dates),
+      rd(HTMLprojectDescription, proj.description)
+    );
+
+	  
+    // links and images
+    $projectEntryLast.append(HTMLprojectImageContainer);
+	  $imageContainer = $('.project-image-container:last');
+	  proj.images.forEach(function(link) {
+      $imageContainer.append(rd(HTMLprojectImage, link));
+    });
+  },
+
+  // Data
   // TODO: HTML git hub & separate gamejam and course "prouds"
-  'projects': [
+  side: [
     {
       'title': 'Illuminare: Spirit',
       'titleLink': 'http://globalgamejam.org/2016/games/illuminare-spirit',
       'dates': '2016',
-      'description': 'This is a 2.5D game where you move around using (awsd). You shine a light in the direction of the mouse, and you can shoot light at enemies by clicking.',
+      'description': `This is a 2.5D game where you move around using (awsd). 
+      You shine a light in the direction of the mouse, and you can shoot light at enemies by clicking.`,
       'images' : [
         'images/spirit1.jpg',
         'images/spirit2.jpg',
@@ -242,11 +258,47 @@ var projects = {
     {
       'title': 'Super Astro Breakers',
       'dates': '2015',
-      'titleLink': 'http://globalgamejam.org/2015/games/super-astro-breakers',
+      'host': 'https://globalgamejam.org/2015/games/super-astro-breakers',
+      'github': 'https://github.com/archcomet/SuperAstroBreakersGGJ2015',
+      'play': 'http://archcomet.github.io/SuperAstroBreakersGGJ2015/public/',
       'description': 'Clear the debris from this region of space to make the way safe. In Super Astro Breakers, ‘buddy system’ takes on a whole new meaning as you and your buddy independently control two ships. Cooperate with your buddy to survive, or fight them and meet certain disaster. Take care to watch out for any dangers lurking in the blackness!',
       'images' : [
         'images/super1.png',
         'images/super2.png',
+      ]
+    }
+  ],
+  course: [
+    {
+      'title': 'Udacity: Profile',
+      'view now': 'https://dancan.github.io/HTML_Profile_Project/',
+      'github' : 'https://github.com/DanCan/HTML_Profile_Project',
+      'dates': '2017',
+      'description': `The purpose of this project was all about the media querries. 
+      I found modals to be fun as well and implemented them on my own. This project I used Grunt with ImageMagick.
+      Note that the links and text are all made up but these are topics that I frequently like to research.☺
+      <ul>        
+        <li>Click featured work images for a modal.</li>
+        <li>Be sure to resize the browser.</li>
+      </ul>`,
+      'images' : [
+        'images/profile1.jpg',
+        'images/profile2.jpg',
+      ]
+    },
+    {
+      'title': 'Udacity: Place I want to visit ',
+      'dates': '2017',
+      'github': 'https://github.com/DanCan/PlaceToVisit',
+      'description': `
+        This project was fun as I got to map out places I would like to visit. Learning and using the google maps the and wiki api. I learned about the knockoutjs library and
+        its data binding.
+        <ul>        
+          <li>Sorry this project is not hosted.</li>
+        </ul>`,
+      'images' : [
+        'images/visit1.jpg',
+        'images/visit2.jpg',
       ]
     }
   ]

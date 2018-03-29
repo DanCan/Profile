@@ -39,8 +39,20 @@ var HTMLworkDates = '<div class="date-text">%data%</div>';
 var HTMLworkLocation = '<div class="location-text">%data%</div>';
 var HTMLworkDescription = '<p><br>%data%</p>';
 
-var HTMLprojectStart = '<div class="project-entry"></div>';
-var HTMLprojectTitle = '<a href="#">%data%</a>';
+var HTMLprojectStart = `
+<div class="project-entry">
+  <div id="side">
+    <h3>Side Projects</h3>
+    <div class="side container"">
+    </div>
+  </div>
+  <div id="course">
+    <h3>Course Projects</h3>
+    <div class="course container"">
+    </div>
+  </div>
+</div>`;
+var HTMLprojectTitle = '<div id="wrap"><a href="#">%data%</a></div>';
 var HTMLprojectDates = '<div class="date-text">%data%</div>';
 var HTMLprojectDescription = '<p><br>%data%</p>';
 var HTMLprojectImageContainer = '<div class="project-image-container"></div>';

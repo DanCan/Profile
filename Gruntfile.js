@@ -3,17 +3,15 @@
 "grunt clean" removes the images directory
 "grunt responsive_images" re-processes images without removing the old ones
 */
-
 module.exports = function(grunt) {
 	// Set
 	grunt.initConfig({
 		responsive_images: {
-			projects: {
+			'dev': {
 				options: {
 					rename: false,
 					engine: 'gm', // gm for node, im for ImageMagick
 					sizes: [{
-                        name: "",
 						width: 300,
 						quality: 80
 					}]
@@ -29,19 +27,19 @@ module.exports = function(grunt) {
 					cwd: 'images_orig/',
 					dest: 'images/'
 				}]
-            }
+      }
 		},
 
 		/* Clear out the images directory if it exists */
 		clean: {
-			dev: {
+			'dev': {
 				src: ['images'],
 			},
 		},
 
 		/* Generate the images directory if it is missing */
 		mkdir: {
-			dev: {
+			'dev': {
 				options: {
 					create: ['images']
 				},
@@ -50,13 +48,13 @@ module.exports = function(grunt) {
 
 		/* Copy the "fixed" images that don't go through processing into the images directory */
 		copy: {
-			svg: {
-			files: [{
-				expand: true,
-				cwd:'images_orig/cropped',
-				src: '*.jpg',
-				dest: 'images/cropped'
-			}]
+			'dev': {
+			  files: [{
+				  expand: true,
+				  cwd:'images_orig/cropped',
+				  src: '*.jpg',
+				  dest: 'images/cropped'
+			  }]
         }
       }
     });

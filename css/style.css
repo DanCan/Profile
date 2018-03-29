@@ -267,6 +267,11 @@ span {
 	text-align: center;
 }
 
+#wrap {
+    width: 176px;
+    height: 24px;
+}
+
 .border {
     background-image: linear-gradient(to bottom, #333 40%, rgba(255, 255, 255, 0) 20%);
     background-position: right;

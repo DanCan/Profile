@@ -1,5 +1,4 @@
-# HTML_Resume_Project
-A resume project from my Udacity course.
+# Resume
 
 * Its got some examples
 
