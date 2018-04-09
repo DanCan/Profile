@@ -1,0 +1,8 @@
+<ul>
+  <li *ngFor="let about of data">
+    <span>{{about.title}}:</span>
+    <span>{{about.content}}</span>
+  </li>
+</ul>
+<img src="images/cropped/me.jpg" class="biopic">
+<span class="welcome-message" [innerHTML]="welcomeMessage"></span>
