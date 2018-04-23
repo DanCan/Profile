@@ -1,25 +1,24 @@
 {
-  "about":{
-    "contacts": [
-      {
-        "title": "email",
-        "content": "dancannova@gmail.com"
-      },
-      {
-        "title": "github",
-        "content": "DanCan"
-      },
-      {
-        "title": "twitter",
-        "content": "dancannova"
-      },
-      {
-        "title": "location",
-        "content": "Seattle, WA"
-      }
-    ],
-    "welcomeMessage": "Welcome! Below you will find quick viewings of my skills and framworks. Further down you will find more indepth explanation of jobs where I have used these skills."
-  }
+  "contacts": [
+    {
+      "title": "email",
+      "content": "dancannova@gmail.com"
+    },
+    {
+      "title": "github",
+      "content": "DanCan"
+    },
+    {
+      "title": "twitter",
+      "content": "dancannova"
+    },
+    {
+      "title": "location",
+      "content": "Seattle, WA"
+    }
+  ],
+  "welcomeMessage": "Below you will find quick viewings of my skills and framworks.",
+  "welcomeMessageCallout": " Use the navigation below to interact with where I have used these skills."
 }
 
 

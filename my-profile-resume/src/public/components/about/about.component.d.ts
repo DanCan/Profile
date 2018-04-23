@@ -1,10 +1,11 @@
 
 export interface IAboutData {
-  about: {
-    contacts: [ {
-      title: string;
-    content: string;
-    }],
-    welcomeMessage: string;
-  }
+  contacts: [IAboutContact],
+  welcomeMessage: string,
+  welcomeMessageCallout
+}
+
+export interface IAboutContact {
+  title: string;
+  content: string;
 }
