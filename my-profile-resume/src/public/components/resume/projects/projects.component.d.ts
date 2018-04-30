@@ -8,7 +8,7 @@ export interface IProject {
   title: string;
   host?: string;
   github?: string;
-  play?: string;
+  view?: string;
   dates: string;
   description: string;
   todo?: Array<string>;

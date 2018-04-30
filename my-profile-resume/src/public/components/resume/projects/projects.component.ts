@@ -6,13 +6,15 @@ import { IProjectData, IProject } from './projects.component.d';
   selector: 'resume-projects',
   templateUrl: './projects.component.html',
   styleUrls: ['./projects.component.css'],
-  preserveWhitespaces: false
+  preserveWhitespaces: true
 })
 export class ProjectsComponent implements OnInit {
   private data: IProjectData;
 
   courseProjects: Array<IProject> = [];
   sideProjects: Array<IProject> = [];
+
+  slide: number = 0;
 
   constructor(private http: HttpClient) { }
 
@@ -21,6 +23,7 @@ export class ProjectsComponent implements OnInit {
     this.http.get("assets/projects.component.json")
       .subscribe( res  => {
         this.data = res as IProjectData;
+        console.log(this.data);
         for (let project of this.data.course) {
           this.courseProjects.push(project);
         }

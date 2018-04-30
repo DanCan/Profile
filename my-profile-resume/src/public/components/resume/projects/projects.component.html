@@ -1,40 +1,70 @@
-  <h3>Projects</h3>
+<div class="card text-white bg-info mb-3">
   <div class="card-body">
     <h4 class="card-title">Side Projects</h4>
-    <div class="side container" *ngFor="let _project of sideProjects">
-      <div id="wrap">
-        <a [attr.href]="_project.host ? _project.host : _project.github" [innerHTML]="_project.title"></a>
-      </div>
-      <div class="date-text" [innerHTML]="_project.dates"></div>
-      <p>
-        <br>{{_project.description}}
-      </p>
-      <ul *ngIf="_project.todo">
-        <li *ngFor="let _item of _project.todo" [innerHTML]="_item"></li>
-      </ul>
-      <div class="project-image-container" *ngFor="let _image of _project.images">
-        <div style="display:inline-block;">
-          <img class="image-restraint img-responsive" [attr.src]="_image">
-        </div>
-      </div>
-    </div>
-    <h4 class="card-title">Course Projects</h4>
-    <div class="side container" *ngFor="let _project of courseProjects">
-      <div id="wrap">
-        <a [attr.href]="_project.host ? _project.host : _project.github" [innerHTML]="_project.title"></a>
-      </div>
-      <div class="date-text" [innerHTML]="_project.dates"></div>
-      <p>
-        <br>{{_project.description}}
-      </p>
-      <ul *ngIf="_project.todo">
-        <li *ngFor="let _item of _project.todo" [innerHTML]="_item"></li>
-      </ul>
-      <div class="project-image-container" *ngFor="let _image of _project.images">
-        <div style="display:inline-block;">
-          <img class="image-restraint img-responsive" [attr.src]="_image">
-        </div>
-      </div>
+  </div>
+</div>
+<div class="row" *ngFor="let _project of sideProjects">
+  <div class="col-sm-4">
+    <h3 [innerHTML]="_project.title"><div class="date-text" [innerHTML]="_project.dates"></div></h3>
+    <div class="btn-group-vertical" data-toggle="buttons">
+      <button *ngIf="_project.host" type="button" class="btn btn-primary stack"> 
+        Code. Downloads.
+      </button>
+      <button *ngIf="_project.github" type="button" class="btn btn-primary stack"> 
+        Github Repository.
+      </button>
+      <button *ngIf="_project.view" type="button" class="btn btn-success stack"> 
+        View Now.
+      </button>
     </div>
   </div>
-
+  <div class="description col-sm-4">
+    <p>
+      {{_project.description}}
+    </p>
+    <ul *ngIf="_project.todo">
+      <li *ngFor="let _item of _project.todo" [innerHTML]="_item"></li>
+    </ul>
+  </div>
+  <div class="images col-sm-4">
+  <!-- <resume-carousel [images]="_project.images"></resume-carousel> -->
+    <div class=" project-image-container" *ngFor="let _image of _project.images">
+      <img class="img-fluid stack" [attr.src]="_image" >
+    </div>
+  </div>
+</div>
+<div class="card text-white bg-info mb-3">
+  <div class="card-body">
+    <h4 class="card-title">Course Projects</h4>
+  </div>
+</div>
+<div class="row" *ngFor="let _project of courseProjects">
+  <div class="col-sm-4">
+    <h3 [innerHTML]="_project.title"><div class="date-text" [innerHTML]="_project.dates"></div></h3>
+    <div class="btn-group-vertical" data-toggle="buttons">
+      <button *ngIf="_project.host" type="button" class="btn btn-primary stack"> 
+        Code. Downloads.
+      </button>
+      <button *ngIf="_project.github" type="button" class="btn btn-primary stack"> 
+        Github Repository.
+      </button>
+      <button *ngIf="_project.view" type="button" class="btn btn-success stack"> 
+        View Now.
+      </button>
+    </div>
+  </div>
+  <div class="description col-sm-4">
+    <p>
+      {{_project.description}}
+    </p>
+    <ul *ngIf="_project.todo">
+      <li *ngFor="let _item of _project.todo" [innerHTML]="_item"></li>
+    </ul>
+  </div>
+  <div class="images col-sm-4">
+  <!-- <resume-carousel [images]="_project.images"></resume-carousel> -->
+    <div class=" project-image-container" *ngFor="let _image of _project.images">
+      <img class="img-fluid stack" [attr.src]="_image" >
+    </div>
+  </div>
+</div>

@@ -4,7 +4,14 @@
       "title": "Illuminare: Spirit",
       "host": "http://globalgamejam.org/2016/games/illuminare-spirit",
       "dates": "2016",
-      "description": "This is a 2.5D game where you move around using (awsd). You shine a light in the direction of the mouse, and you can shoot light at enemies by clicking.",
+      "description": "The Global Game Jam theme was ritual. This is a 2.5D game where you move around using (wasd). You shine a light in the direction of the mouse, and you can shoot light at enemies by clicking. You will move faster if you zig zag.",
+      "todo": [
+        "Mac only install",
+        "Click to Shoot",
+        "Move with wasd",
+        "Find 4 Crystals to finish",
+        "Global Game Jam"
+      ],
       "images" : [
         "assets/images/spirit2.jpg",
         "assets/images/spirit3.jpg"
@@ -15,8 +22,12 @@
       "dates": "2015",
       "host": "https://globalgamejam.org/2015/games/super-astro-breakers",
       "github": "https://github.com/archcomet/SuperAstroBreakersGGJ2015",
-      "play": "http://archcomet.github.io/SuperAstroBreakersGGJ2015/public/",
-      "description": "Clear the debris from this region of space to make the way safe. In Super Astro Breakers, ‘buddy system’ takes on a whole new meaning as you and your buddy independently control two ships. Cooperate with your buddy to survive, or fight them and meet certain disaster. Take care to watch out for any dangers lurking in the blackness!",
+      "view": "http://archcomet.github.io/SuperAstroBreakersGGJ2015/public/",
+      "description": "The Global Game Jamp theme was buddy system. Clear the debris from this region of space to make the way safe. In Super Astro Breakers, ‘buddy system’ takes on a whole new meaning as you and your buddy independently control two ships. Cooperate with your buddy to survive, or fight them and meet certain disaster. Take care to watch out for any dangers lurking in the blackness!",
+      "todo": [
+        "Controls!@#!@$!@",
+        "Global Game Jam"
+      ],
       "images" : [
         "assets/images/super1.png",
         "assets/images/super2.png"
@@ -27,9 +38,10 @@
     {
       "title": "Udacity: Profile",
       "github" : "https://github.com/DanCan/HTML_Profile_Project",
+      "view": "-insert-link-",
       "dates": "2017",
       "description": "The purpose of this project was all about the media querries.  I found modals to be fun as well and implemented them on my own. This project I used Grunt with ImageMagick. Note that the links and text are all made up but these are topics that I frequently like to research.☺",
-      "todo": ["Click featured work images for a modal.", "Be sure to resize the browser."],
+      "todo": ["Click images for a modal.", "Resize the browser."],
       "images" : [
         "assets/images/profile1.jpg",
         "assets/images/profile2.jpg"

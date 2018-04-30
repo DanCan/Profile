@@ -27,3 +27,11 @@
 .gap {
   margin: 0 40%;
 }
+
+.stack {
+  margin: 8px 0;
+}
+
+.btn {
+  white-space: normal;
+}
