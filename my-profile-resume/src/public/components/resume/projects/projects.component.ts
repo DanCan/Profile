@@ -33,4 +33,10 @@ export class ProjectsComponent implements OnInit {
     });
   
   }
+
+  openWindow(link: string) {
+    console.log(link);
+    window.open(link);
+  }
+
 }
