@@ -2,7 +2,8 @@
 export interface IAboutData {
   contacts: [IAboutContact],
   welcomeMessage: string,
-  welcomeMessageCallout
+  welcomeMessageCallout: string,
+  skills: Array<Array<string>>
 }
 
 export interface IAboutContact {

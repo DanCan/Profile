@@ -14,7 +14,7 @@ export class ProjectsComponent implements OnInit {
   courseProjects: Array<IProject> = [];
   sideProjects: Array<IProject> = [];
 
-  slide: number = 0;
+  projects = [];
 
   constructor(private http: HttpClient) { }
 
@@ -23,13 +23,23 @@ export class ProjectsComponent implements OnInit {
     this.http.get("assets/projects.component.json")
       .subscribe( res  => {
         this.data = res as IProjectData;
-        console.log(this.data);
         for (let project of this.data.course) {
           this.courseProjects.push(project);
         }
         for (let project of this.data.side) {
           this.sideProjects.push(project);
         }
+
+        this.projects = [{
+          title: "Side Projects",
+          data: this.sideProjects
+        },
+        {
+          title: "Course Projects",
+          data: this.courseProjects
+        }];
+        console.log(this.projects);
+        
     });
   
   }

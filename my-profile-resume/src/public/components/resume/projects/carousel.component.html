@@ -1,7 +1,7 @@
 <div class="carousel slide" data-ride="carousel">
   <div class="carousel-inner">
     <div class="carousel-item project-image-container" [class.active]="slide" *ngFor="let _image of images">
-      <img class="img-fluid" [attr.src]="_image">
+      <img class="img-fluid" [attr.src]="_image" [class.d-block]="true" [class.w-100]="true" >
     {{_image}}
     </div>
   </div>

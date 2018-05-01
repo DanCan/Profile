@@ -4,15 +4,15 @@
   </div>
 </div>
 <div class="row" *ngFor="let _project of sideProjects">
-  <div class="col-sm-4">
+  <div class="project-vertical col-sm-4">
     <h3 [innerHTML]="_project.title"><div class="date-text" [innerHTML]="_project.dates"></div></h3>
-    <div class="btn-group-vertical" data-toggle="buttons">
+    <div class="btn-group-vertical project-btn-group" data-toggle="buttons">
       <input *ngIf="_project.host" type="button" class="btn btn-primary stack" (click)="openWindow(_project.host)" value="Code. Downloads." />
       <input *ngIf="_project.github" type="button" class="btn btn-primary stack" (click)="openWindow(_project.github)" value="Github Repository."/> 
       <input *ngIf="_project.view" type="button" class="btn btn-success stack" (click)="openWindow(_project.view)" value="View Now."/>
     </div>
   </div>
-  <div class="description col-sm-4">
+  <div class="card-text description col-sm-4">
     <p>
       {{_project.description}}
     </p>
@@ -33,9 +33,9 @@
   </div>
 </div>
 <div class="row" *ngFor="let _project of courseProjects">
-  <div class="col-sm-4">
+  <div class="project-vertical col-sm-4">
     <h3 [innerHTML]="_project.title"><div class="date-text" [innerHTML]="_project.dates"></div></h3>
-    <div class="btn-group-vertical" data-toggle="buttons">
+    <div class="btn-group-vertical project-btn-group" data-toggle="buttons">
       <input *ngIf="_project.host" type="button" class="btn btn-primary stack" (click)="openWindow(_project.host)" value="Code. Downloads." />
       <input *ngIf="_project.github" type="button" class="btn btn-primary stack" (click)="openWindow(_project.github)" value="Github Repository."/> 
       <input *ngIf="_project.view" type="button" class="btn btn-success stack" (click)="openWindow(_project.view)" value="View Now."/>

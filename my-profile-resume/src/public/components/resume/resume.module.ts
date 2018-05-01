@@ -7,6 +7,8 @@ import { CarouselComponent } from './projects/carousel.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { ProjectsComponent } from './projects/projects.component';
+import { SkillsComponent } from './skills/skills.component';
+
 /* services */
 import { ContactsService } from '../../services/services.module';
 /* shared */
@@ -18,14 +20,16 @@ import { SharedModule } from '../shared/shared.module';
     CarouselComponent,
     FooterComponent,
     HeaderComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    SkillsComponent
   ],
   exports: [
     AboutComponent,
     CarouselComponent,
     FooterComponent,
     HeaderComponent,
-    ProjectsComponent
+    ProjectsComponent,
+    SkillsComponent
   ],
   imports: [
     BrowserModule,

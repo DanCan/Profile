@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ContactsService } from '../../../services/services.module';
 
 @Component({
   selector: 'resume-footer',
@@ -9,6 +8,6 @@ import { ContactsService } from '../../../services/services.module';
 })
 export class FooterComponent {
 
-  constructor(private contactsService: ContactsService) { }
+  constructor() { }
 
 }

@@ -29,7 +29,15 @@
 }
 
 .stack {
-  margin: 8px 0;
+  margin-bottom: 16px;
+}
+
+.project-vertical {
+  text-align: center;
+}
+
+.project-btn-group {
+  margin-top: 16px;
 }
 
 .btn {

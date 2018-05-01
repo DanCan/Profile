@@ -1,4 +1,3 @@
-
 export interface IProjectData {
   side: Array<IProject>;
   course: Array<IProject>;
