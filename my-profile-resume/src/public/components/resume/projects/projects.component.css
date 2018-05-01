@@ -43,3 +43,7 @@
 .btn {
   white-space: normal;
 }
+
+.project-row {
+  margin-bottom: 24px;
+}

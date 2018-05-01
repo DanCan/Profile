@@ -6,15 +6,15 @@
       "dates": "2016",
       "description": "The Global Game Jam theme was ritual. This is a 2.5D game where you move around using (wasd). You shine a light in the direction of the mouse, and you can shoot light at enemies by clicking. You will move faster if you zig zag.",
       "todo": [
-        "Mac only install",
-        "Click to Shoot",
-        "Move with wasd",
-        "Find 4 Crystals to finish",
-        "Global Game Jam"
+        "Mac only install.",
+        "Click to Shoot.",
+        "Move with wasd and zig zag to move faster.",
+        "Find 4 Crystals and head back to center to finish.",
+        "Global Game Jam. Theme: Ritual"
       ],
       "images" : [
-        "assets/images/spirit2.jpg",
-        "assets/images/spirit3.jpg"
+        "assets/images/spirit1.png",
+        "assets/images/spirit2.png"
         ]
     },
     {
@@ -25,8 +25,15 @@
       "view": "http://archcomet.github.io/SuperAstroBreakersGGJ2015/public/",
       "description": "The Global Game Jamp theme was buddy system. Clear the debris from this region of space to make the way safe. In Super Astro Breakers, ‘buddy system’ takes on a whole new meaning as you and your buddy independently control two ships. Cooperate with your buddy to survive, or fight them and meet certain disaster. Take care to watch out for any dangers lurking in the blackness!",
       "todo": [
-        "Controls!@#!@$!@",
-        "Global Game Jam"
+        "Player 1",
+        "Move: wasd",
+        "Shoot: e",
+        "Bomb: r",
+        "Player 2",
+        "Move: Arrows ↑←↓→",
+        "Shoot: /",
+        "Bomb: .",
+        "Global Game Jam. Theme: Buddy system"
       ],
       "images" : [
         "assets/images/super1.png",
@@ -43,8 +50,8 @@
       "description": "The purpose of this project was all about the media querries.  I found modals to be fun as well and implemented them on my own. This project I used Grunt with ImageMagick. Note that the links and text are all made up but these are topics that I frequently like to research.☺",
       "todo": ["Click images for a modal.", "Resize the browser."],
       "images" : [
-        "assets/images/profile1.jpg",
-        "assets/images/profile2.jpg"
+        "assets/images/profile1.png",
+        "assets/images/profile2.png"
       ]
     },
     {
@@ -54,8 +61,8 @@
       "description": "This project was fun as I got to map out places I would like to visit. Learning and using the google maps the and wiki api. I learned about the knockoutjs library and its data binding.",
       "todo": ["Sorry this project is not hosted"],
       "images" : [
-        "assets/images/visit1.jpg",
-        "assets/images/visit2.jpg"
+        "assets/images/visit1.png",
+        "assets/images/visit2.png"
       ]
     }
   ]
