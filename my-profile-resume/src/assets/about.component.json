@@ -17,13 +17,16 @@
       "content": "Seattle, WA"
     }
   ],
-  "welcomeMessage": "Below you will find quick viewings of my skills and framworks. These are skills that I have used in either a profesional workplace or as a hobby.",
+  "welcomeMessage": "Below you will find quick viewings of my experience, skills and projects. The experience and skills have been used in either a profesional workplace, side project or as a hobby.",
   "welcomeMessageCallout": "Use the navigation below to interact with where I have used these skills.",
   "skills":[
     [ "Web Programming", "HTML, CSS, JavaScript", "Angular 4, Typescript, Jasmine, Koa"],
-    ["Engineering", "C#, SQL", "Jenkins, AWS"], 
-    ["UI/UX", "Xbox & Xbox One - Lua, Xui & JS", "Proprietary"], 
+    ["Engineering", "C#, SQL", "Jenkins, AWS"],
+    ["UI/UX", "Xbox & Xbox One - Lua, Xui & JS", "Proprietary"],
     ["Game Programming", "Game Engine, Gameplay", "Unity3D, ActionScript"],
     "Fundamentals in C++"
+  ],
+  "skills2":[
+    ["HTML", "CSS", "JavaScript", "Angular", "Typescript", "jQuery", "Google Api", "Wiki Api", "Three.js", "Box2D", "CogJs", "C#", "Unity3D"]
   ]
 }

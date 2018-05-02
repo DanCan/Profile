@@ -1,3 +1,13 @@
 <div class="skills-container">
-	{{contactsService.skills}}
+  <div *ngFor="let _item of contactsService.skills">
+    <h2 [innerHTML]="_item[0]"></h2>
+    <div>
+      <h3>Skills</h3>
+      <span [innerHTML]="_item[1]"></span>
+    </div>
+    <div>
+      <h3>Frameworks</h3>
+      <span [innerHTML]="_item[2]"></span>
+    </div>
+  </div>
 </div>
