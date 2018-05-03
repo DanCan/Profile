@@ -26,7 +26,8 @@
     ["Game Programming", "Game Engine, Gameplay", "Unity3D, ActionScript"],
     "Fundamentals in C++"
   ],
-  "skills2":[
-    ["HTML", "CSS", "JavaScript", "Angular", "Typescript", "jQuery", "Google Api", "Wiki Api", "Three.js", "Box2D", "CogJs", "C#", "Unity3D"]
+  "skills2": [
+    ["HTML", "CSS", "JavaScript", "Angular", "Typescript", "jQuery", "Google Api", "Wiki Api", "Three.js", "Box2D", "CogJs", "C#", "Unity3D", "Game Programming", "UI/UX"],
+    ["Engineering", "Xbox & Xbox One", "ActionScript", "Fundamentals in C++" ]
   ]
 }

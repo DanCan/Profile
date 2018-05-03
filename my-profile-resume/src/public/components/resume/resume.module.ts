@@ -1,4 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule, ModuleWithProviders } from '@angular/core';
 /* components */
@@ -9,10 +11,9 @@ import { HeaderComponent } from './header/header.component';
 import { ProjectsComponent } from './projects/projects.component';
 import { SkillsComponent } from './skills/skills.component';
 
-/* services */
-import { ContactsService } from '../../services/services.module';
 /* shared */
 import { SharedModule } from '../shared/shared.module';
+import { ServicesModule } from '../../services/services.module';
 
 @NgModule({
   declarations: [
@@ -33,15 +34,14 @@ import { SharedModule } from '../shared/shared.module';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
+    CommonModule,
     HttpClientModule,
-    SharedModule
-  ]
+    SharedModule,
+    ServicesModule
+  ],
+  // providers: [
+  //   ContactsService
+  // ]
 })
-export class PortfolioModule { 
-  static forRoot(): ModuleWithProviders {
-    return {
-      ngModule: PortfolioModule,
-      providers: [ ContactsService ]
-    }
-  }
-}
+export class PortfolioModule { }

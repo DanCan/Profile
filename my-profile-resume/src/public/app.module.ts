@@ -3,7 +3,10 @@ import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app/app.component';
 import { PortfolioModule } from './components/resume/resume.module';
+import { ServicesModule } from './services/services.module';
 import { SharedModule } from './components/shared/shared.module';
+
+import { ContactsService } from './services/contactsService/contacts.service';
 
 @NgModule({
   declarations: [
@@ -11,9 +14,10 @@ import { SharedModule } from './components/shared/shared.module';
   ],
   imports: [
     BrowserModule,
-    PortfolioModule.forRoot()
+    PortfolioModule,
+    ServicesModule.forRoot()
   ],
-  providers: [],
+//  providers: [ContactsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

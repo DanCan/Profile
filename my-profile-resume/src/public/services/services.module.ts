@@ -6,6 +6,7 @@ import { IAboutContact } from './contactsService/about.component';
 /* exports */
 export { ContactsService, IAboutContact }
 
+@NgModule({})
 export class ServicesModule { 
 
 	static forRoot(): ModuleWithProviders {

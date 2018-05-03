@@ -3,18 +3,18 @@ import { NgModule, ModuleWithProviders } from '@angular/core';
 import { CommonModule } from '@angular/common';
 
 import { ContactsComponent } from './contacts/contacts.component';
-import { ContactsService, IAboutContact } from '../../services/services.module'
+import { IAboutContact } from '../../services/services.module'
+import { ServicesModule } from '../../services/services.module';
+
 
 @NgModule({
   imports: [
-    CommonModule
+    CommonModule,
+    ServicesModule
   ],
   declarations: [
-    ContactsComponent,
+    ContactsComponent
   ],
-  exports: [
-    ContactsComponent,
-  ],
-  providers: [ContactsService],
+  exports: [ContactsComponent]
 })
 export class SharedModule { }

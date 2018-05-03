@@ -10,6 +10,7 @@ export class ContactsService {
   welcomeMessage: string = "";
   welcomeMessageCallout: string = "";
   skills: Array<Array<string>>;
+  skills2: { functional: Array<string> };
 
   constructor(private http: HttpClient) { 
     this.http.get("assets/about.component.json")
@@ -21,6 +22,7 @@ export class ContactsService {
         this.welcomeMessage = this.data.welcomeMessage;
         this.welcomeMessageCallout = this.data.welcomeMessageCallout;
         this.skills = this.data.skills;
+        this.skills2 = this.data.skills2;
     });
   }
 

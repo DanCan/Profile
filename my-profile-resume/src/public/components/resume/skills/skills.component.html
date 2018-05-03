@@ -1,4 +1,5 @@
 <div class="skills-container">
+<!-- <<<<<<< 
   <div *ngFor="let _item of contactsService.skills">
     <h2 [innerHTML]="_item[0]"></h2>
     <div>
@@ -10,4 +11,9 @@
       <span [innerHTML]="_item[2]"></span>
     </div>
   </div>
+======= -->
+	<ng-container *ngFor="let skill of skills">
+	<div [@animateAnimation]="state" (click)="toggleState()" [innerHTML]="skill">
+	</div>
+	</ng-container>
 </div>
