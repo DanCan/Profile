@@ -1,3 +1,10 @@
 .skills-container {
 	margin: 8px;
 }
+
+.skill {
+  display: inline-block;
+  margin: 8px;
+  padding: 8px;
+  cursor: pointer;
+}

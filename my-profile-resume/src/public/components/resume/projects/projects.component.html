@@ -3,56 +3,11 @@
     <h4 class="card-title">Side Projects</h4>
   </div>
 </div>
-<div class="row project-row" *ngFor="let _project of sideProjects; let _i = index">
-  <div class="project-vertical col-sm-4">
-    <h3 [innerHTML]="_project.title"><div class="date-text" [innerHTML]="_project.dates"></div></h3>
-    <div class="btn-group-vertical project-btn-group" data-toggle="buttons">
-      <input *ngIf="_project.host" type="button" class="btn btn-primary stack" (click)="openWindow(_project.host)" value="Code. Downloads." />
-      <input *ngIf="_project.github" type="button" class="btn btn-primary stack" (click)="openWindow(_project.github)" value="Github Repository."/>
-      <input *ngIf="_project.view" type="button" class="btn btn-success stack" (click)="openWindow(_project.view)" value="View Now."/>
-    </div>
-  </div>
-  <div class="card-text description col-sm-4">
-    <p>
-      {{_project.description}}
-    </p>
-    <ul *ngIf="_project.todo">
-      <li *ngFor="let _item of _project.todo" [innerHTML]="_item"></li>
-    </ul>
-  </div>
-  <div class="images col-sm-4">
-   <resume-carousel [id]="_project.title" [images]="_project.images"></resume-carousel>
-    <!--<div class=" project-image-container" *ngFor="let _image of _project.images">-->
-      <!--<img class="img-fluid stack" [attr.src]="_image" >-->
-    <!--</div>-->
-  </div>
-</div>
+<project-component [projects]="sideProjects"></project-component>
+
 <div class="card text-white bg-info mb-3">
   <div class="card-body">
     <h4 class="card-title">Course Projects</h4>
   </div>
 </div>
-<div class="row project-row" *ngFor="let _project of courseProjects">
-  <div class="project-vertical col-sm-4">
-    <h3 [innerHTML]="_project.title"><div class="date-text" [innerHTML]="_project.dates"></div></h3>
-    <div class="btn-group-vertical project-btn-group" data-toggle="buttons">
-      <input *ngIf="_project.host" type="button" class="btn btn-primary stack" (click)="openWindow(_project.host)" value="Code. Downloads." />
-      <input *ngIf="_project.github" type="button" class="btn btn-primary stack" (click)="openWindow(_project.github)" value="Github Repository."/>
-      <input *ngIf="_project.view" type="button" class="btn btn-success stack" (click)="openWindow(_project.view)" value="View Now."/>
-    </div>
-  </div>
-  <div class="description col-sm-4">
-    <p>
-      {{_project.description}}
-    </p>
-    <ul *ngIf="_project.todo">
-      <li *ngFor="let _item of _project.todo" [innerHTML]="_item"></li>
-    </ul>
-  </div>
-  <div class="images col-sm-4">
-    <resume-carousel [id]="_project.title" [images]="_project.images" [backgroundColor]="'black'"></resume-carousel>
-    <!--<div class=" project-image-container" *ngFor="let _image of _project.images">-->
-      <!--<img class="img-fluid stack" [attr.src]="_image" >-->
-    <!--</div>-->
-  </div>
-</div>
+<project-component [projects]="courseProjects" [carousel-background]="'black'"></project-component>

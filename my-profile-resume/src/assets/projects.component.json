@@ -15,7 +15,11 @@
       "images" : [
         "assets/images/spirit1.png",
         "assets/images/spirit2.png"
-        ]
+        ],
+      "skills": [
+        "C#", "Unity3D", "Game Programming"
+      ],
+      "tall": false
     },
     {
       "title": "Super Astro Breakers",
@@ -38,7 +42,11 @@
       "images" : [
         "assets/images/super1.png",
         "assets/images/super2.png"
-      ]
+      ],
+      "skills": [
+        "Three.js", "Box2D", "CogJs"
+      ],
+      "tall": false
     }
   ],
   "course": [
@@ -52,6 +60,9 @@
       "images" : [
         "assets/images/profile1.png",
         "assets/images/profile2.png"
+      ],
+      "skills": [
+        "HTML", "CSS", "JavaScript", "jQuery", "KnockoutJS"
       ]
     },
     {
@@ -63,6 +74,9 @@
       "images" : [
         "assets/images/visit1.png",
         "assets/images/visit2.png"
+      ],
+      "skills": [
+        "HTML", "CSS", "JavaScript", "jQuery", "Google Api", "Wiki Api"
       ]
     }
   ]

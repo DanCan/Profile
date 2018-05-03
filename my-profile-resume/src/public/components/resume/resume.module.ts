@@ -2,14 +2,14 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
 import { CommonModule } from '@angular/common';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule, ModuleWithProviders } from '@angular/core';
+import { NgModule } from '@angular/core';
 /* components */
 import { AboutComponent } from './about/about.component';
 import { CarouselComponent } from './projects/carousel.component';
 import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
-import { ProjectsComponent } from './projects/projects.component';
-import { SkillsComponent } from './skills/skills.component';
+import { ProjectsComponent, ProjectComponent } from './projects/projects.component';
+import { SkillsComponent, SkillNavComponent } from './skills/skills.component';
 
 /* shared */
 import { SharedModule } from '../shared/shared.module';
@@ -22,7 +22,9 @@ import { ServicesModule } from '../../services/services.module';
     FooterComponent,
     HeaderComponent,
     ProjectsComponent,
-    SkillsComponent
+    SkillsComponent,
+    SkillNavComponent,
+    ProjectComponent
   ],
   exports: [
     AboutComponent,

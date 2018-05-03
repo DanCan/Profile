@@ -47,3 +47,12 @@
 .project-row {
   margin-bottom: 24px;
 }
+
+.project-skills {
+  margin-bottom: 32px;
+}
+
+.tall {
+  margin-top: -64px;
+  margin-bottom: -80px;
+}

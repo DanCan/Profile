@@ -12,4 +12,6 @@ export interface IProject {
   description: string;
   todo?: Array<string>;
   images: Array<string>;
+  skills: Array<string>;
+  tall?: boolean;
 }
