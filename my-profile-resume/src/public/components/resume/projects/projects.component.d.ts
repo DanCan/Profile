@@ -13,5 +13,4 @@ export interface IProject {
   todo?: Array<string>;
   images: Array<string>;
   skills: Array<string>;
-  tall?: boolean;
 }

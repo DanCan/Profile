@@ -8,6 +8,7 @@ import { SharedModule } from './components/shared/shared.module';
 
 import { ContactsService } from './services/contactsService/contacts.service';
 
+
 @NgModule({
   declarations: [
     AppComponent
@@ -17,7 +18,9 @@ import { ContactsService } from './services/contactsService/contacts.service';
     PortfolioModule,
     ServicesModule.forRoot()
   ],
-//  providers: [ContactsService],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule { 
+	constructor() { }
+}

@@ -18,8 +18,7 @@
         ],
       "skills": [
         "C#", "Unity3D", "Game Programming"
-      ],
-      "tall": false
+      ]
     },
     {
       "title": "Super Astro Breakers",
@@ -45,8 +44,7 @@
       ],
       "skills": [
         "Three.js", "Box2D", "CogJs"
-      ],
-      "tall": false
+      ]
     }
   ],
   "course": [

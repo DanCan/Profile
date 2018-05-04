@@ -1,4 +1,4 @@
-<div class="skills-container">
+<div class="skills-container nav nav-pills">
 <!-- <<<<<<<
   <div *ngFor="let _item of contactsService.skills">
     <h2 [innerHTML]="_item[0]"></h2>
@@ -16,3 +16,9 @@
 	<navigate-skill [text]="skill"></navigate-skill>
 	</ng-container>
 </div>
+<div *ngIf="showHeader" class="skills-header nav nav-pills">
+  <ng-container *ngFor="let skill of skills">
+  <navigate-skill [text]="skill"></navigate-skill>
+  </ng-container>
+</div>
+ 

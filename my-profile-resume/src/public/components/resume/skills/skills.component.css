@@ -8,3 +8,17 @@
   padding: 8px;
   cursor: pointer;
 }
+
+.skills-header {
+	position: fixed;
+}
+
+.fake-link:hover {
+    color: #0d5875;
+}	
+
+.fake-link {
+    color: #158CBA;
+    text-decoration: none;
+    background-color: transparent;
+}

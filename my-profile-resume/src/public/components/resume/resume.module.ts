@@ -14,6 +14,8 @@ import { SkillsComponent, SkillNavComponent } from './skills/skills.component';
 /* shared */
 import { SharedModule } from '../shared/shared.module';
 import { ServicesModule } from '../../services/services.module';
+import { Ng2PageScrollModule, PageScrollConfig } from 'ng2-page-scroll';
+
 
 @NgModule({
   declarations: [
@@ -39,11 +41,9 @@ import { ServicesModule } from '../../services/services.module';
     BrowserAnimationsModule,
     CommonModule,
     HttpClientModule,
+    Ng2PageScrollModule,
     SharedModule,
     ServicesModule
-  ],
-  // providers: [
-  //   ContactsService
-  // ]
+  ]
 })
 export class PortfolioModule { }

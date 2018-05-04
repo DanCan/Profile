@@ -15,7 +15,7 @@ import { IProjectData, IProject } from './projects.component.d';
       </div>
       <div class="project-skills">
         <div *ngFor="let _skill of _project.skills">
-          <span class="badge badge-pill badge-info" [innerHTML]="_skill"></span>
+          <span id="{{_skill}}-project" class="badge badge-pill badge-info" [innerHTML]="_skill"></span>
         </div>
       </div>
     </div>
@@ -27,7 +27,7 @@ import { IProjectData, IProject } from './projects.component.d';
         <li *ngFor="let _item of _project.todo" [innerHTML]="_item"></li>
       </ul>
     </div>
-    <div class="images col-sm-4" [class.tall]="_project.tall === false">
+    <div class="images col-sm-4">
       <resume-carousel [id]="_project.title" [images]="_project.images" [backgroundColor]="carouselBackground"></resume-carousel>
     </div>
     <div *ngIf="_i !== projects.length -1" class="center-content">
