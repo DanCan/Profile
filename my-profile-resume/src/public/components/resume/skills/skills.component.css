@@ -11,14 +11,27 @@
 
 .skills-header {
 	position: fixed;
+  top: 0;
+  left: 0;
+  background-color: #fafafa;
+  z-index: 1;
+  width: 100%;
 }
 
 .fake-link:hover {
-    color: #0d5875;
-}	
+    color: #0d5875 !important;
+}
 
 .fake-link {
-    color: #158CBA;
+    color: #158CBA !important;
     text-decoration: none;
     background-color: transparent;
+}
+
+.skill-color-override {
+  border-style: none;
+}
+
+.nav-link {
+  cursor: pointer;
 }
