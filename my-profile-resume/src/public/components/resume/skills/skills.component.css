@@ -48,6 +48,7 @@ navigate-skill{
   border-style: none;
 }
 
+.dropdown-link,
 .nav-link {
   cursor: pointer;
 }

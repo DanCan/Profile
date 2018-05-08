@@ -64,10 +64,10 @@
       ]
     },
     {
-      "title": "Udacity: Place I want to visit ",
+      "title": "Udacity: Place I want to visit",
       "dates": "2017",
       "github": "https://github.com/DanCan/PlaceToVisit",
-      "description": "This project was fun as I got to map out places I would like to visit. Learning and using the google maps the and wiki api. I learned about the knockoutjs library and its data binding.",
+      "description": "This project was fun as I got to map out places I would like to visit. Learning and using the google maps the and wiki api and figuring about the knockoutjs library and its data binding was a fun change from Angular.",
       "todo": ["Sorry this project is not hosted"],
       "images" : [
         "assets/images/visit1.png",

@@ -38,6 +38,7 @@
 
 .project-btn-group {
   margin-top: 16px;
+  width: 100%;
 }
 
 .btn {
@@ -51,7 +52,7 @@
 }
 
 .project-skills {
-  margin-bottom: 64px;
+  margin-top: 64px;
   width: 100%;
 }
 

@@ -1,3 +1,7 @@
 .control {
   border-radius: 3px;
 }
+
+.project-btn-group {
+	width: 100%;
+}

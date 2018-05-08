@@ -3,13 +3,10 @@ import { ContactsService } from '../../../services/services.module';
 import { animateAnimation } from './skills.animation';
 import { LinkDropDown } from './skills.component.d';
 
-@Component({
-  selector: 'navigate-skill',
-  styleUrls: ['./skills.component.css'],
-  animations: [animateAnimation],
-  encapsulation: ViewEncapsulation.None,
-  template: `
+/*
+`
         <ul class="navbar-nav mr-auto">
+        	
           <ng-template [ngIf]="multiple" [ngIfElse]="singleLink" >
             <span class="nav-link dropdown-toggle" [@animateAnimation]="state" [class.fake-link]="!show" role="button" data-toggle="dropdown" (click)="toggleShown()" aria-haspopup="true" aria-expanded="false'"	[innerHTML]="text"> </span>
             <div *ngIf="multiple" class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
@@ -22,17 +19,43 @@ import { LinkDropDown } from './skills.component.d';
           </ng-template>
         </ul>
   `
+*/
+
+@Component({
+  selector: 'navigate-skill',
+  styleUrls: ['./skills.component.css'],
+  animations: [animateAnimation],
+  encapsulation: ViewEncapsulation.None,
+  template: `
+  	<ul class="navbar-nav mr-auto">
+  		<ng-container *ngFor="let project of projectTitles">
+				<ng-template [ngIf]="project.menu" [ngIfElse]="singleLink">
+					<div class="btn-group" role="group"><span class="nav-link dropdown-toggle" [@animateAnimation]="state" [class.fake-link]="!show" role="button" data-toggle="dropdown" (click)="toggleShown()" aria-haspopup="true" aria-expanded="false'"	[innerHTML]="project.title"> </span>
+          <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
+            <a *ngFor="let _skill of project.items" class="dropdown-item dropdown-link" href="#{{project.title}}:-{{replaceSpaces(_skill)}}" [innerHTML]="_skill"
+            		[@animateAnimation]="state" pageScroll role="button" [pageScrollOffset]="130" [pageScrollDuration]="2000" [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"></a>
+        	</div>    </div>
+
+        	
+				</ng-template>
+        <ng-template #singleLink>
+          <a href="#{{replaceSpaces(project.title)}}" class="fake-link nav-link" [@animateAnimation]="state" pageScroll role="button" [innerHTML]="project.title" [pageScrollOffset]="130" [pageScrollDuration]="2000" [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"></a>
+        </ng-template>
+  		</ng-container>
+  	</ul>
+  `
 })
-// [@animateAnimation]="state"
-// href="#{{text}}-project"
-//  pageScroll
-// [pageScrollOffset]="0" [pageScrollDuration]="2000"
-// [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"
 export class SkillNavComponent {
 
   @Input() text: string;
 
   state = 'inactive';
+
+  projectTitles = [ 
+	  { title:'Illuminare: Spirit', menu: false },
+	  { title:'Super Astro Breakers', menu: false },
+	  { title: "Udacity", menu: true, items: ['Profile', 'Place I want to visit']}
+  ];
 
   private _doubles: Array<LinkDropDown> = [ { title: 'HTML', total: 2 }, { title: 'CSS', total: 2 }, { title: 'JavaScript', total: 2 } ];
 
@@ -41,6 +64,10 @@ export class SkillNavComponent {
   show = false;
 
   scrollOffset = 0;
+
+  replaceSpaces(str) {
+  	return str.replace(/\s/g, '-')
+  }
 
   get multiple() {
   	let value = this._doubles.filter(v => v.title === this.text);
