@@ -1,9 +1,11 @@
 <div>
-  <div class="jumbotron">
-    <div class="pad-sides">
+  <div class="jumbotron jumbotron-fix">
+    <div class="">
+      <div class="header-content pad-sides">
         <resume-header></resume-header>
         <resume-about></resume-about>
-        <resume-skills></resume-skills>
+      </div>
+      <resume-skills [offsetHeight]="headerContentHeight"></resume-skills>
     </div>
   </div>
   <div class="table-default">

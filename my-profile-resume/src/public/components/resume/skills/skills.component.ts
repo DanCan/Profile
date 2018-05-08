@@ -1,6 +1,7 @@
-import { Component, Input, HostListener, ViewEncapsulation } from '@angular/core';
+import { OnInit, Component, Input, HostListener, HostBinding, ViewEncapsulation, ElementRef} from '@angular/core';
 import { ContactsService } from '../../../services/services.module';
 import { animateAnimation } from './skills.animation';
+import { LinkDropDown } from './skills.component.d';
 
 @Component({
   selector: 'navigate-skill',
@@ -8,38 +9,18 @@ import { animateAnimation } from './skills.animation';
   animations: [animateAnimation],
   encapsulation: ViewEncapsulation.None,
   template: `
-
         <ul class="navbar-nav mr-auto">
           <ng-template [ngIf]="multiple" [ngIfElse]="singleLink" >
-            <span class="nav-link dropdown-toggle" [class.fake-link]="!show" role="button" data-toggle="dropdown" (click)="toggleShown()" aria-haspopup="true" aria-expanded="false'"	[innerHTML]="text"> </span>
+            <span class="nav-link dropdown-toggle" [@animateAnimation]="state" [class.fake-link]="!show" role="button" data-toggle="dropdown" (click)="toggleShown()" aria-haspopup="true" aria-expanded="false'"	[innerHTML]="text"> </span>
             <div *ngIf="multiple" class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
-              <a class="dropdown-item" href="#">Action</a>
-              <a class="dropdown-item" href="#">Another action</a>
-              <a class="dropdown-item" href="#">Something else here</a>
-              <div class="dropdown-divider"></div>
-              <a class="dropdown-item" href="#">Separated link</a>
+              <a *ngFor="let _skill of doubles[text]" class="dropdown-item" href="#{{text.replace(' ', '-')}}-project-{{_skill}}" [innerHTML]="_skill==0 ? text+' Profile' : text+' Place To Visit'"
+              		[@animateAnimation]="state" pageScroll role="button" [pageScrollOffset]="500" [pageScrollDuration]="2000" [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"></a>
             </div>
           </ng-template>
           <ng-template #singleLink>
-            <a href="#{{text}}-project" class="fake-link nav-link" pageScroll role="button" [innerHTML]="text" [pageScrollOffset]="50" [pageScrollDuration]="2000" [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"></a>
+            <a href="#{{text.replace(' ', '-')}}-project-0" class="fake-link nav-link" [@animateAnimation]="state" pageScroll role="button" [innerHTML]="text" [pageScrollOffset]="500" [pageScrollDuration]="2000" [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"></a>
           </ng-template>
         </ul>
-    <!--<ul class="nav nav-pills">-->
-    <!--<li class="skill nav-item" [class.dropdown]="multiple" [class.show]="show" (click)="toggleState()">-->
-      <!--<ng-template [ngIf]="multiple" [ngIfElse]="singleLink" >-->
-        <!--<span class="nav-link dropdown-toggle" [class.fake-link]="!show" role="button" data-toggle="dropdown" (click)="showDropDown()" aria-haspopup="true" aria-expanded="show ? 'true' : false'"	 [innerHTML]="text"> </span>-->
-        <!--<div *ngIf="multiple" class="dropdown-menu" [class.show]="show" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">-->
-          <!--<a class="dropdown-item" href="#">Action</a>-->
-          <!--<a class="dropdown-item" href="#">Another action</a>-->
-          <!--<a class="dropdown-item" href="#">Something else here</a>-->
-          <!--<div class="dropdown-divider"></div>-->
-          <!--<a class="dropdown-item" href="#">Separated link</a>-->
-        <!--</div>-->
-      <!--</ng-template>-->
-      <!--<ng-template #singleLink>-->
-        <!--<a href="#{{text}}-project" class="fake-link nav-link" pageScroll role="button" [innerHTML]="text" [pageScrollOffset]="50" [pageScrollDuration]="2000" [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"></a>-->
-      <!--</ng-template>-->
-    <!--</li></ul>-->
   `
 })
 // [@animateAnimation]="state"
@@ -53,13 +34,23 @@ export class SkillNavComponent {
 
   state = 'inactive';
 
-  doubles = ['HTML'];
+  private _doubles: Array<LinkDropDown> = [ { title: 'HTML', total: 2 }, { title: 'CSS', total: 2 }, { title: 'JavaScript', total: 2 } ];
+
+  doubles: { [skill:string]: Array<number> } = {};
 
   show = false;
 
+  scrollOffset = 0;
+
   get multiple() {
-  	let value = this.doubles.filter(v => v === this.text);
+  	let value = this._doubles.filter(v => v.title === this.text);
   	return value.length > 0;
+  }
+
+  constructor() {
+  	for( let ldd of this._doubles) {
+			this.doubles[ldd.title] = Array(ldd.total).fill(ldd.total).map((x,i)=>i);
+  	}
   }
 
   toggleShown() {
@@ -102,9 +93,17 @@ export class SkillNavComponent {
   encapsulation: ViewEncapsulation.None
 
 })
-export class SkillsComponent {
+export class SkillsComponent implements OnInit {
+
+	@Input('offsetHeight') 
+	set parentHeight(value) {
+		this._parentHeight = value;
+	}
+	_parentHeight = 0;
 
 	showHeader = false;
+
+	headerHeight = 0;
 
 	get skills() {
 		return this.contactsService.skills2 && this.contactsService.skills2['length'] !== 0 ? this.contactsService.skills2[0] : [];
@@ -112,15 +111,21 @@ export class SkillsComponent {
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
-	  console.log('here');
+  	console.log(this._parentHeight, this.headerHeight);
     let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (number > 504) {
+    const padding = 30;
+    const headerPos = this._parentHeight + this.headerHeight - padding;
+    if (number > headerPos) {
       this.showHeader = true;
-    } else if (this.showHeader && number < 504) {
+    } else if (this.showHeader && number < headerPos) {
       this.showHeader = false;
     }
   }
 
-  constructor(private contactsService: ContactsService) { }
+  constructor(private contactsService: ContactsService, private elmRef: ElementRef) { }
+
+  ngOnInit() {
+		this.headerHeight = this.elmRef.nativeElement.getElementsByClassName('skills-container')[0].offsetHeight;
+  }
 
 }

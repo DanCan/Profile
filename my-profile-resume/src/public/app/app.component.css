@@ -1,3 +1,10 @@
-.pad-sides {
-  padding: 0 2.5%;
+.jumbotron-fix {
+	padding-bottom: 32px;
+  padding-bottom: 0;
+  margin-bottom: 0;
+}
+
+.header-content{
+	max-width: 850px;
+	margin: auto;
 }

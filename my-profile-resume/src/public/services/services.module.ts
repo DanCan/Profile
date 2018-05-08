@@ -16,3 +16,6 @@ export class ServicesModule {
 		}
 	}
 }
+
+
+// TODO: Create a Service that loads in the Projects and totals the doubles.

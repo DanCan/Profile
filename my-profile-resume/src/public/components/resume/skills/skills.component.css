@@ -1,5 +1,19 @@
+navigate-skill{
+	display: inline-block;
+}
+
+@media (max-width: 991px) {
+	navigate-skill {
+		margin: 16px;
+	}
+}
+
 .skills-container {
 	margin: 8px;
+}
+
+.center-sides {
+	padding: 0 2rem;
 }
 
 .skill {
@@ -16,14 +30,16 @@
   background-color: #fafafa;
   z-index: 1;
   width: 100%;
+  padding: 8px;
 }
 
+
 .fake-link:hover {
-    color: #0d5875 !important;
+    color: #fff !important;
 }
 
 .fake-link {
-    color: #158CBA !important;
+    color: rgba(255, 255, 255, 0.5) !important;
     text-decoration: none;
     background-color: transparent;
 }

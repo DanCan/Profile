@@ -17,7 +17,7 @@
         "assets/images/spirit2.png"
         ],
       "skills": [
-        "C#", "Unity3D", "Game Programming"
+        "C#", "Unity3D", "Global Game Jam"
       ]
     },
     {
@@ -43,7 +43,7 @@
         "assets/images/super2.png"
       ],
       "skills": [
-        "Three.js", "Box2D", "CogJs"
+        "Three.js", "Box2D", "CogJs", "Global Game Jam"
       ]
     }
   ],
@@ -51,7 +51,7 @@
     {
       "title": "Udacity: Profile",
       "github" : "https://github.com/DanCan/HTML_Profile_Project",
-      "view": "-insert-link-",
+      "view": "https://dancan.github.io/HTML_Profile_Project/",
       "dates": "2017",
       "description": "The purpose of this project was all about the media querries.  I found modals to be fun as well and implemented them on my own. This project I used Grunt with ImageMagick. Note that the links and text are all made up but these are topics that I frequently like to research.☺",
       "todo": ["Click images for a modal.", "Resize the browser."],
@@ -60,7 +60,7 @@
         "assets/images/profile2.png"
       ],
       "skills": [
-        "HTML", "CSS", "JavaScript", "jQuery", "KnockoutJS"
+        "HTML", "CSS", "JavaScript", "jQuery", "KnockoutJS", "UI/UX"
       ]
     },
     {
