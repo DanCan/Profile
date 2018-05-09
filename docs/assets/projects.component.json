@@ -17,7 +17,7 @@
         "assets/images/spirit2.png"
         ],
       "skills": [
-        "C#", "Unity3D", "Global Game Jam"
+        "C#", "Unity3D", "Game Programming", "Global Game Jam"
       ]
     },
     {
@@ -43,7 +43,7 @@
         "assets/images/super2.png"
       ],
       "skills": [
-        "Three.js", "Box2D", "CogJs", "Global Game Jam"
+        "Three.js", "Box2D", "CogJs", "Game Programming", "Global Game Jam"
       ]
     }
   ],

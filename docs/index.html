@@ -1,8 +1,27 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><title>MyProfileResume</title><base href="Profile"><meta name="viewport" content="width=device-width,initial-scale=1"><link rel="icon" type="image/x-icon" href="favicon.ico"><script>// See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>MyProfileResume</title>
+  <base href="/">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <script>
+	  // See http://www.backalleycoder.com/2016/05/13/sghpa-the-single-page-app-hack-for-github-pages/
 	  (function(){
 	    var redirect = sessionStorage.redirect;
 	    delete sessionStorage.redirect;
 	    if (redirect && redirect != location.href) {
 	      history.replaceState(null, null, redirect);
 	    }
-	  })();</script><link href="styles.08e2d9337f51f1d94ed5.bundle.css" rel="stylesheet"/></head><body><app-root>Loading...</app-root><script type="text/javascript" src="inline.318b50c57b4eba3d437b.bundle.js"></script><script type="text/javascript" src="polyfills.b6b2cd0d4c472ac3ac12.bundle.js"></script><script type="text/javascript" src="scripts.e837eb563e9d3455901f.bundle.js"></script><script type="text/javascript" src="main.5ca9893ff008ace57a0c.bundle.js"></script></body></html>
+	  })();
+	</script>
+
+</head>
+<body>
+  <app-root>Loading...</app-root>
+
+<script type="text/javascript" src="inline.bundle.js"></script><script type="text/javascript" src="polyfills.bundle.js"></script><script type="text/javascript" src="styles.bundle.js"></script><script type="text/javascript" src="scripts.bundle.js"></script><script type="text/javascript" src="vendor.bundle.js"></script><script type="text/javascript" src="main.bundle.js"></script></body>
+</html>
