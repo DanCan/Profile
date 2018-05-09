@@ -81,7 +81,7 @@ module.exports = "\n@import url(\"https://fonts.googleapis.com/css?family=Nunito
 /***/ "./node_modules/raw-loader/index.js!./node_modules/postcss-loader/lib/index.js??embedded!./src/styles.css":
 /***/ (function(module, exports) {
 
-module.exports = "/* You can add global styles to this file, and also import other style files */\n.center-content {\n  padding: 2.5% 2.5%;\n  width: 100%;\n}\n.pad-sides {\n  padding: 0 2.5%;\n}\n.gap {\n  margin: 0 40%;\n}\n"
+module.exports = "/* You can add global styles to this file, and also import other style files */\n.center-content {\n  padding: 2.5% 2.5%;\n  width: 100%;\n}\n.pad-sides {\n  padding: 0 2.5%;\n}\n.gap {\n  margin: 0 40%;\n}\n@media (max-width: 855px) and (min-width: 630px) {\n  .contacts {\n    width: 515px;\n  }\n}\n@media (max-width: 855px) {\n\n  .biopic {\n    display: none;\n  }\n\n  .welcome-card {\n    margin-left: 0 !important;\n    width: 100% !important;\n  }\n}\n@media (max-width: 575px) {\n\n  .center-sides{\n    padding: 0 1rem !important;\n  }\n}"
 
 /***/ }),
 

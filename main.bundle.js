@@ -47,7 +47,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 
 
 if (__WEBPACK_IMPORTED_MODULE_3__environments_environment__["a" /* environment */].production) {
-    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_12" /* enableProdMode */])();
+    Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_13" /* enableProdMode */])();
 }
 Object(__WEBPACK_IMPORTED_MODULE_1__angular_platform_browser_dynamic__["a" /* platformBrowserDynamic */])().bootstrapModule(__WEBPACK_IMPORTED_MODULE_2__public_app_module__["a" /* AppModule */])
     .catch(function (err) { return console.log(err); });
@@ -164,7 +164,7 @@ var AppComponent = /** @class */ (function () {
 /***/ "./src/public/components/resume/about/about.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".contacts {\n  list-style-type: none;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n\n.contact-info {\n  padding: 8px;\n}\n\n.contact-info-title {\n  margin-right: 8px;\n}\n\n.welcome-card {\n  width: calc( 100% - 200px);\n  margin-left: 200px;\n}\n\n.biopic {\n  float: left;\n  padding: 10px;\n  width: 200px;\n}\n\n"
+module.exports = ".welcome-card {\n  width: calc( 100% - 200px);\n  margin-left: 200px;\n}\n\n.biopic {\n  float: left;\n  padding: 10px;\n  width: 200px;\n}\n\n"
 
 /***/ }),
 
@@ -650,7 +650,7 @@ module.exports = "navigate-skill{\n\tdisplay: inline-block;\n}\n\n@media (max-wi
 /***/ "./src/public/components/resume/skills/skills.component.html":
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"skills-container\">\n    <nav class=\"skill-color-override navbar navbar-expand-lg navbar-dark bg-dark\">\n      <a class=\"navbar-brand\" href=\"#\">DanCan</a>\n      <button class=\"navbar-toggler collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTOP\" aria-controls=\"navbarTOP\" aria-expanded=\"true\" aria-label=\"Toggle navigation\" style=\"\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n\n      <div class=\"navbar-collapse collapse\" id=\"navbarTOP\" style=\"\">\n        <!-- <ng-container *ngFor=\"let skill of skills\"> -->\n          <navigate-skill [text]=\"'skill'\"></navigate-skill>\n        <!-- </ng-container> -->\n      </div>\n    </nav>\n</div>\n<div *ngIf=\"showHeader\" class=\"skills-header\">\n<div class=\"center-sides\">\n  <nav class=\"skill-color-override navbar navbar-expand-lg navbar-dark bg-dark\">\n    <a class=\"navbar-brand\" href=\"#\">DanCan</a>\n    <button class=\"navbar-toggler collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor03\" aria-controls=\"navbarColor03\" aria-expanded=\"true\" aria-label=\"Toggle navigation\" style=\"\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"navbar-collapse collapse\" id=\"navbarColor03\" style=\"\">\n      <!-- <ng-container *ngFor=\"let skill of skills\"> -->\n      <navigate-skill [text]=\"'skill'\"></navigate-skill>\n      <!-- </ng-container> -->\n    </div>\n  </nav>\n  </div>\n</div>\n"
+module.exports = "<div class=\"skills-container\">\n    <nav class=\"skill-color-override navbar navbar-expand-lg navbar-dark bg-dark\">\n      <a class=\"navbar-brand\" href=\"#\">DanCan</a>\n      <button #skillNav class=\"navbar-toggler collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarTOP\" aria-controls=\"navbarTOP\" aria-expanded=\"true\" aria-label=\"Toggle navigation\" style=\"\">\n        <span class=\"navbar-toggler-icon\"></span>\n      </button>\n\n      <div class=\"navbar-collapse collapse\" id=\"navbarTOP\" style=\"\">\n        <!-- <ng-container *ngFor=\"let skill of skills\"> -->\n          <navigate-skill [offset]=\"280\" (navigationClick)=\"collapse()\" [text]=\"'skill'\"></navigate-skill>\n        <!-- </ng-container> -->\n      </div>\n    </nav>\n</div>\n<div *ngIf=\"showHeader\" class=\"skills-header\">\n<div class=\"center-sides\">\n  <nav class=\"skill-color-override navbar navbar-expand-lg navbar-dark bg-dark\">\n    <a class=\"navbar-brand\" href=\"#\">DanCan</a>\n    <button #skillNavFloat class=\"navbar-toggler collapsed\" type=\"button\" data-toggle=\"collapse\" data-target=\"#navbarColor03\" aria-controls=\"navbarColor03\" aria-expanded=\"true\" aria-label=\"Toggle navigation\" style=\"\">\n      <span class=\"navbar-toggler-icon\"></span>\n    </button>\n\n    <div class=\"navbar-collapse collapse\" id=\"navbarColor03\" style=\"\">\n      <!-- <ng-container *ngFor=\"let skill of skills\"> -->\n      <navigate-skill [offset]=\"130\" (navigationClick)=\"collapse()\" [text]=\"'skill'\"></navigate-skill>\n      <!-- </ng-container> -->\n    </div>\n  </nav>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -678,7 +678,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 /*
 `
         <ul class="navbar-nav mr-auto">
-            
+
           <ng-template [ngIf]="multiple" [ngIfElse]="singleLink" >
             <span class="nav-link dropdown-toggle" [@animateAnimation]="state" [class.fake-link]="!show" role="button" data-toggle="dropdown" (click)="toggleShown()" aria-haspopup="true" aria-expanded="false'"	[innerHTML]="text"> </span>
             <div *ngIf="multiple" class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
@@ -694,6 +694,7 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 */
 var SkillNavComponent = /** @class */ (function () {
     function SkillNavComponent() {
+        this.navigationClick = new __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */]();
         this.state = 'inactive';
         this.projectTitles = [
             { title: 'Illuminare: Spirit', menu: false },
@@ -739,6 +740,9 @@ var SkillNavComponent = /** @class */ (function () {
             this.show = !this.show;
         }
     };
+    SkillNavComponent.prototype.emitCollapseEvent = function () {
+        this.navigationClick.emit(true);
+    };
     SkillNavComponent.prototype.doSmth = function (reachedTarget) {
         if (reachedTarget) {
             console.log('Yeah, we reached our destination');
@@ -755,13 +759,21 @@ var SkillNavComponent = /** @class */ (function () {
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
         __metadata("design:type", String)
     ], SkillNavComponent.prototype, "text", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])(),
+        __metadata("design:type", Number)
+    ], SkillNavComponent.prototype, "offset", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["P" /* Output */])(),
+        __metadata("design:type", __WEBPACK_IMPORTED_MODULE_0__angular_core__["v" /* EventEmitter */])
+    ], SkillNavComponent.prototype, "navigationClick", void 0);
     SkillNavComponent = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["n" /* Component */])({
             selector: 'navigate-skill',
             styles: [__webpack_require__("./src/public/components/resume/skills/skills.component.css")],
             animations: [__WEBPACK_IMPORTED_MODULE_2__skills_animation__["a" /* animateAnimation */]],
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewEncapsulation */].None,
-            template: "\n  \t<ul class=\"navbar-nav mr-auto\">\n  \t\t<ng-container *ngFor=\"let project of projectTitles\">\n\t\t\t\t<ng-template [ngIf]=\"project.menu\" [ngIfElse]=\"singleLink\">\n\t\t\t\t\t<div class=\"btn-group\" role=\"group\"><span class=\"nav-link dropdown-toggle\" [@animateAnimation]=\"state\" [class.fake-link]=\"!show\" role=\"button\" data-toggle=\"dropdown\" (click)=\"toggleShown()\" aria-haspopup=\"true\" aria-expanded=\"false'\"\t[innerHTML]=\"project.title\"> </span>\n          <div class=\"dropdown-menu\" x-placement=\"bottom-start\" style=\"position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);\">\n            <a *ngFor=\"let _skill of project.items\" class=\"dropdown-item dropdown-link\" href=\"#{{project.title}}:-{{replaceSpaces(_skill)}}\" [innerHTML]=\"_skill\"\n            \t\t[@animateAnimation]=\"state\" pageScroll role=\"button\" [pageScrollOffset]=\"130\" [pageScrollDuration]=\"2000\" [pageScrollEasing]=\"myEasing\" [pageScrollInterruptible]=\"false\" (pageScrollFinish)=\"doSmth($event)\"></a>\n        \t</div>    </div>\n\n        \t\n\t\t\t\t</ng-template>\n        <ng-template #singleLink>\n          <a href=\"#{{replaceSpaces(project.title)}}\" class=\"fake-link nav-link\" [@animateAnimation]=\"state\" pageScroll role=\"button\" [innerHTML]=\"project.title\" [pageScrollOffset]=\"130\" [pageScrollDuration]=\"2000\" [pageScrollEasing]=\"myEasing\" [pageScrollInterruptible]=\"false\" (pageScrollFinish)=\"doSmth($event)\"></a>\n        </ng-template>\n  \t\t</ng-container>\n  \t</ul>\n  "
+            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewEncapsulation */].None,
+            template: "\n  \t<ul class=\"navbar-nav mr-auto\">\n  \t\t<ng-container *ngFor=\"let project of projectTitles\">\n\t\t\t\t<ng-template [ngIf]=\"project.menu\" [ngIfElse]=\"singleLink\">\n\t\t\t\t\t<div class=\"btn-group\" role=\"group\"><span class=\"nav-link dropdown-toggle\" [@animateAnimation]=\"state\" [class.fake-link]=\"!show\" role=\"button\" data-toggle=\"dropdown\" (click)=\"toggleShown()\" aria-haspopup=\"true\" aria-expanded=\"false'\"\t[innerHTML]=\"project.title\"> </span>\n          <div class=\"dropdown-menu\" x-placement=\"bottom-start\" style=\"position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);\">\n            <a *ngFor=\"let _skill of project.items\" class=\"dropdown-item dropdown-link\" href=\"#{{project.title}}:-{{replaceSpaces(_skill)}}\" [innerHTML]=\"_skill\"\n            \t\t(click)=\"emitCollapseEvent()\" [@animateAnimation]=\"state\" pageScroll role=\"button\" [pageScrollOffset]=\"offset\" [pageScrollDuration]=\"2000\" [pageScrollEasing]=\"myEasing\" [pageScrollInterruptible]=\"false\" (pageScrollFinish)=\"doSmth($event)\"></a>\n        \t</div>    </div>\n\n\n\t\t\t\t</ng-template>\n        <ng-template #singleLink>\n          <a href=\"#{{replaceSpaces(project.title)}}\" (click)=\"emitCollapseEvent()\" class=\"fake-link nav-link\" [@animateAnimation]=\"state\" pageScroll role=\"button\" [innerHTML]=\"project.title\" [pageScrollOffset]=\"offset\" [pageScrollDuration]=\"2000\" [pageScrollEasing]=\"myEasing\" [pageScrollInterruptible]=\"false\" (pageScrollFinish)=\"doSmth($event)\"></a>\n        </ng-template>\n  \t\t</ng-container>\n  \t</ul>\n  "
         }),
         __metadata("design:paramtypes", [])
     ], SkillNavComponent);
@@ -791,7 +803,6 @@ var SkillsComponent = /** @class */ (function () {
         configurable: true
     });
     SkillsComponent.prototype.onWindowScroll = function () {
-        console.log(this._parentHeight, this.headerHeight);
         var number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
         var padding = 30;
         var headerPos = this._parentHeight + this.headerHeight - padding;
@@ -805,6 +816,24 @@ var SkillsComponent = /** @class */ (function () {
     SkillsComponent.prototype.ngOnInit = function () {
         this.headerHeight = this.elmRef.nativeElement.getElementsByClassName('skills-container')[0].offsetHeight;
     };
+    SkillsComponent.prototype.collapse = function () {
+        // get check both buttons for click expanded state
+        // click one or both
+        if (!this.skillNav.nativeElement.classList.contains('collapsed')) {
+            this.skillNav.nativeElement.click();
+        }
+        if (this.skillNavFloat && !this.skillNavFloat.nativeElement.classList.contains('collapsed')) {
+            this.skillNavFloat.nativeElement.click();
+        }
+    };
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('skillNav'),
+        __metadata("design:type", Object)
+    ], SkillsComponent.prototype, "skillNav", void 0);
+    __decorate([
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["_8" /* ViewChild */])('skillNavFloat'),
+        __metadata("design:type", Object)
+    ], SkillsComponent.prototype, "skillNavFloat", void 0);
     __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["D" /* Input */])('offsetHeight'),
         __metadata("design:type", Object),
@@ -822,7 +851,7 @@ var SkillsComponent = /** @class */ (function () {
             template: __webpack_require__("./src/public/components/resume/skills/skills.component.html"),
             styles: [__webpack_require__("./src/public/components/resume/skills/skills.component.css")],
             preserveWhitespaces: false,
-            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_9" /* ViewEncapsulation */].None
+            encapsulation: __WEBPACK_IMPORTED_MODULE_0__angular_core__["_10" /* ViewEncapsulation */].None
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1__services_services_module__["a" /* ContactsService */], __WEBPACK_IMPORTED_MODULE_0__angular_core__["t" /* ElementRef */]])
     ], SkillsComponent);
@@ -836,7 +865,7 @@ var SkillsComponent = /** @class */ (function () {
 /***/ "./src/public/components/shared/contacts/contacts.component.css":
 /***/ (function(module, exports) {
 
-module.exports = ".contacts {\n  list-style-type: none;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n}\n\n.contact-info {\n  padding: 8px;\n}\n\n.contact-info-title {\n  margin-right: 8px;\n}\n\n.welcome-card {\n  width: calc( 100% - 200px);\n  margin-left: 200px;\n}\n\n.biopic {\n  float: left;\n  padding: 10px;\n  width: 200px;\n}\n\n.gap {\n  margin: 0 40%;\n}\n"
+module.exports = ".contacts {\n  list-style-type: none;\n  display: -webkit-box;\n  display: -ms-flexbox;\n  display: flex;\n  -ms-flex-pack: distribute;\n      justify-content: space-around;\n  -ms-flex-wrap: wrap;\n      flex-wrap: wrap;\n  margin-left: auto;\n  margin-right: auto;\n  padding: 0;\n}\n\n.contact-info {\n  padding: 8px;\n}\n\n.contact-info-title {\n  margin-right: 8px;\n}\n\n.welcome-card {\n  width: calc( 100% - 200px);\n  margin-left: 200px;\n}\n\n.biopic {\n  float: left;\n  padding: 10px;\n  width: 200px;\n}\n\n.gap {\n  margin: 0 40%;\n}\n"
 
 /***/ }),
 
