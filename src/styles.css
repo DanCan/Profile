@@ -11,3 +11,28 @@
 .gap {
   margin: 0 40%;
 }
+
+@media (max-width: 855px) and (min-width: 630px) {
+  .contacts {
+    width: 515px;
+  }
+}
+
+@media (max-width: 855px) {
+
+  .biopic {
+    display: none;
+  }
+
+  .welcome-card {
+    margin-left: 0 !important;
+    width: 100% !important;
+  }
+}
+
+@media (max-width: 575px) {
+
+  .center-sides{
+    padding: 0 1rem !important;
+  }
+}

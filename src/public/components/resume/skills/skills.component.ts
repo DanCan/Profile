@@ -1,4 +1,4 @@
-import { OnInit, Component, Input, HostListener, HostBinding, ViewEncapsulation, ElementRef} from '@angular/core';
+import { OnInit, Component, Input, Output, ViewChild, HostListener, ViewEncapsulation, ElementRef, EventEmitter} from '@angular/core';
 import { ContactsService } from '../../../services/services.module';
 import { animateAnimation } from './skills.animation';
 import { LinkDropDown } from './skills.component.d';
@@ -6,7 +6,7 @@ import { LinkDropDown } from './skills.component.d';
 /*
 `
         <ul class="navbar-nav mr-auto">
-        	
+
           <ng-template [ngIf]="multiple" [ngIfElse]="singleLink" >
             <span class="nav-link dropdown-toggle" [@animateAnimation]="state" [class.fake-link]="!show" role="button" data-toggle="dropdown" (click)="toggleShown()" aria-haspopup="true" aria-expanded="false'"	[innerHTML]="text"> </span>
             <div *ngIf="multiple" class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
@@ -33,13 +33,13 @@ import { LinkDropDown } from './skills.component.d';
 					<div class="btn-group" role="group"><span class="nav-link dropdown-toggle" [@animateAnimation]="state" [class.fake-link]="!show" role="button" data-toggle="dropdown" (click)="toggleShown()" aria-haspopup="true" aria-expanded="false'"	[innerHTML]="project.title"> </span>
           <div class="dropdown-menu" x-placement="bottom-start" style="position: absolute; will-change: transform; top: 0px; left: 0px; transform: translate3d(0px, 37px, 0px);">
             <a *ngFor="let _skill of project.items" class="dropdown-item dropdown-link" href="#{{project.title}}:-{{replaceSpaces(_skill)}}" [innerHTML]="_skill"
-            		[@animateAnimation]="state" pageScroll role="button" [pageScrollOffset]="130" [pageScrollDuration]="2000" [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"></a>
+            		(click)="emitCollapseEvent()" [@animateAnimation]="state" pageScroll role="button" [pageScrollOffset]="offset" [pageScrollDuration]="2000" [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"></a>
         	</div>    </div>
 
-        	
+
 				</ng-template>
         <ng-template #singleLink>
-          <a href="#{{replaceSpaces(project.title)}}" class="fake-link nav-link" [@animateAnimation]="state" pageScroll role="button" [innerHTML]="project.title" [pageScrollOffset]="130" [pageScrollDuration]="2000" [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"></a>
+          <a href="#{{replaceSpaces(project.title)}}" (click)="emitCollapseEvent()" class="fake-link nav-link" [@animateAnimation]="state" pageScroll role="button" [innerHTML]="project.title" [pageScrollOffset]="offset" [pageScrollDuration]="2000" [pageScrollEasing]="myEasing" [pageScrollInterruptible]="false" (pageScrollFinish)="doSmth($event)"></a>
         </ng-template>
   		</ng-container>
   	</ul>
@@ -49,9 +49,13 @@ export class SkillNavComponent {
 
   @Input() text: string;
 
+  @Input() offset: number;
+
+  @Output() navigationClick: EventEmitter<boolean> = new EventEmitter();
+
   state = 'inactive';
 
-  projectTitles = [ 
+  projectTitles = [
 	  { title:'Illuminare: Spirit', menu: false },
 	  { title:'Super Astro Breakers', menu: false },
 	  { title: "Udacity", menu: true, items: ['Profile', 'Place I want to visit']}
@@ -66,7 +70,7 @@ export class SkillNavComponent {
   scrollOffset = 0;
 
   replaceSpaces(str) {
-  	return str.replace(/\s/g, '-')
+  	return str.replace(/\s/g, '-');
   }
 
   get multiple() {
@@ -84,6 +88,10 @@ export class SkillNavComponent {
   	if(this.multiple) {
   		this.show = !this.show;
   	}
+  }
+
+  emitCollapseEvent() {
+    this.navigationClick.emit(true);
   }
 
   /** source: https://www.npmjs.com/package/ng2-page-scroll **/
@@ -122,7 +130,10 @@ export class SkillNavComponent {
 })
 export class SkillsComponent implements OnInit {
 
-	@Input('offsetHeight') 
+  @ViewChild('skillNav') skillNav;
+  @ViewChild('skillNavFloat') skillNavFloat;
+
+	@Input('offsetHeight')
 	set parentHeight(value) {
 		this._parentHeight = value;
 	}
@@ -138,7 +149,6 @@ export class SkillsComponent implements OnInit {
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
-  	console.log(this._parentHeight, this.headerHeight);
     let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
     const padding = 30;
     const headerPos = this._parentHeight + this.headerHeight - padding;
@@ -155,4 +165,14 @@ export class SkillsComponent implements OnInit {
 		this.headerHeight = this.elmRef.nativeElement.getElementsByClassName('skills-container')[0].offsetHeight;
   }
 
+  collapse() {
+    // get check both buttons for click expanded state
+    // click one or both
+    if (!this.skillNav.nativeElement.classList.contains('collapsed') ) {
+      this.skillNav.nativeElement.click();
+    }
+    if (this.skillNavFloat && !this.skillNavFloat.nativeElement.classList.contains('collapsed') ) {
+      this.skillNavFloat.nativeElement.click();
+    }
+  }
 }
