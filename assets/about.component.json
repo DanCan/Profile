@@ -2,19 +2,23 @@
   "contacts": [
     {
       "title": "email",
-      "content": "dancannova@gmail.com"
+      "content": "dancannova@gmail.com",
+      "link": "mailto:dancannova@gmail.com"
     },
     {
       "title": "github",
-      "content": "DanCan"
+      "content": "DanCan",
+      "link": "https://github.com/DanCan"
     },
     {
       "title": "twitter",
-      "content": "dancannova"
+      "content": "dancannova",
+      "link": "https://twitter.com/dancannova"
     },
     {
       "title": "location",
-      "content": "Seattle, WA"
+      "content": "Seattle, WA",
+      "link": "https://www.google.com/maps/place/Seattle,+WA/@47.6129428,-122.4824922,11z"
     }
   ],
   "welcomeMessage": "Below you will find quick viewings of my experience, skills and projects. The experience and skills have been used in either a profesional workplace, side project or as a hobby.",

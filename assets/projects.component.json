@@ -28,15 +28,15 @@
       "view": "http://archcomet.github.io/SuperAstroBreakersGGJ2015/public/",
       "description": "The Global Game Jamp theme was buddy system. Clear the debris from this region of space to make the way safe. In Super Astro Breakers, ‘buddy system’ takes on a whole new meaning as you and your buddy independently control two ships. Cooperate with your buddy to survive, or fight them and meet certain disaster. Take care to watch out for any dangers lurking in the blackness!",
       "todo": [
+        "Global Game Jam. Theme: Buddy system",
         "Player 1",
         "Move: wasd",
         "Shoot: e",
-        "Bomb: r",
+        "Bomb: r", 
         "Player 2",
         "Move: Arrows ↑←↓→",
         "Shoot: /",
-        "Bomb: .",
-        "Global Game Jam. Theme: Buddy system"
+        "Bomb: ."
       ],
       "images" : [
         "assets/images/super1.png",
