@@ -10,6 +10,7 @@
 
 .contact-info {
   padding: 8px;
+  cursor: pointer;
 }
 
 .contact-info-title {

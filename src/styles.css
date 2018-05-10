@@ -35,4 +35,15 @@
   .center-sides{
     padding: 0 1rem !important;
   }
+
+  .project-vertical {
+    display: flex;
+    margin: 0 !important;
+
+  }
+
+  .images {
+    order: -1;
+  }
+
 }

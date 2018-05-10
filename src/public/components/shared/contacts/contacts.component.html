@@ -1,6 +1,8 @@
 <ul class="contacts">
   <li class="contact-info" *ngFor="let _contact of contacts">
-    <span class="contact-info-title badge badge-secondary">{{_contact.title}}:</span>
-    <span>{{_contact.content}}</span>
+    <a href="{{_contact.link}}">
+      <span class="contact-info-title badge badge-secondary">{{_contact.title}}:</span>
+      <span>{{_contact.content}}</span>
+    </a>
   </li>
 </ul>

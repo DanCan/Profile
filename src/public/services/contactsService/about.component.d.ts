@@ -10,4 +10,5 @@ export interface IAboutData {
 export interface IAboutContact {
   title: string;
   content: string;
+  link: string;
 }

@@ -6,36 +6,41 @@ import { LinkDropDown } from '../skills/skills.component.d';
 @Component({
   selector: 'project-component',
   template: `
-    <div class="row project-row" *ngFor="let _project of projects; let _i = index">
-    <div class="project-vertical col-sm-4" >
-      <h3 id="{{replaceSpaces(_project.title)}}" [innerHTML]="_project.title"><div class="date-text" [innerHTML]="_project.dates"></div></h3>
-      <p>
-        {{_project.description}}
-      </p>
-      <ul *ngIf="_project.todo">
-        <li *ngFor="let _item of _project.todo" [innerHTML]="_item"></li>
-      </ul>
-    </div>
-    <div class="card-text description col-sm-4">
-    <div class="btn-group-vertical project-btn-group" data-toggle="buttons">
-        <input *ngIf="_project.host" type="button" class="btn btn-outline-primary " (click)="openWindow(_project.host)" value="Code & Downloads" />
-        <input *ngIf="_project.github" type="button" class="btn btn-outline-primary " (click)="openWindow(_project.github)" value="Github Repository"/>
-        <input *ngIf="_project.view" type="button" class="btn btn-outline-success " (click)="openWindow(_project.view)" value="View Now"/>
+  <ng-container *ngFor="let _project of projects; let _i = index">
+    <h3 class="project-title" id="{{replaceSpaces(_project.title)}}">{{_project.title}}<div class="date-text" [innerHTML]="_project.dates"></div></h3>   
+    <div class="row project-skills">
+      <div class="project-skill" *ngFor="let _skill of _project.skills">
+        <h6 id="{{_skill.title.replace(' ', '-')}}-project-{{_skill.index}}" class="btn-codepen animate btn-blue btn-border-rev" [innerHTML]="_skill.title"></h6>
       </div>
-      <div class="project-skills">
-        <div *ngFor="let _skill of _project.skills">
-          <h6 id="{{_skill.title.replace(' ', '-')}}-project-{{_skill.index}}" class="btn-codepen animate btn-blue btn-border-rev" [innerHTML]="_skill.title"></h6>
+    </div>
+    <div class="row project-row" >
+      <div class="project-vertical col-md-4" >
+        <p>
+          {{_project.description}}
+        </p>
+      </div>
+
+      <div class="card-text project-vertical col-md-4">
+        <ul *ngIf="_project.todo">
+          <ng-container *ngFor="let _item of _project.todo">
+            <li [innerHTML]="_item" [class.player]="_item.includes('layer')"></li>
+          </ng-container>
+        </ul>
+        <div class="btn-group-vertical project-btn-group" data-toggle="buttons">
+          <input *ngIf="_project.host" type="button" class="btn btn-outline-primary " (click)="openWindow(_project.host)" value="Code & Downloads" />
+          <input *ngIf="_project.github" type="button" class="btn btn-outline-primary " (click)="openWindow(_project.github)" value="Github Repository"/>
+          <input *ngIf="_project.view" type="button" class="btn btn-outline-success " (click)="openWindow(_project.view)" value="View Now"/>
         </div>
       </div>
-      
+
+      <div class="images col-md-4">
+        <resume-carousel [id]="_project.title" [images]="_project.images" [backgroundColor]="carouselBackground"></resume-carousel>
+      </div>
+      <div *ngIf="_i !== projects.length -1" class="center-content">
+        <hr class="gap">
+      </div>
     </div>
-    <div class="images col-sm-4">
-      <resume-carousel [id]="_project.title" [images]="_project.images" [backgroundColor]="carouselBackground"></resume-carousel>
-    </div>
-    <div *ngIf="_i !== projects.length -1" class="center-content">
-      <hr class="gap">
-    </div>
-  </div>`,
+  </ng-container>`,
   styleUrls: ['./projects.component.css'],
 })
 // badge badge-pill badge-info
