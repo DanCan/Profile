@@ -28,14 +28,19 @@
   margin: 0 40%;
 }
 
+.project-container {
+  margin: 0 0;
+}
+
 .project-vertical {
   text-align: left;
-  margin: 32px 0;
+  padding-top: 8px;
 }
 
 .project-btn-group {
-  margin-top: 16px;
   width: 100%;
+  margin-bottom: 16px;
+  
 }
 
 .project-title {
@@ -43,7 +48,8 @@
 }
 
 .project-skill {
-  margin-right: 16px;
+  padding-right: 16px;
+  padding-left: 16px;
 }
 
 .btn {
@@ -51,14 +57,8 @@
 }
 
 .project-row {
-  margin-bottom: 24px;
-  padding-bottom: 2.5% 0;
+  margin-top: 24px;
   color: black;
-}
-
-.project-skills {
-  margin-left: 32px;
-  margin-bottom: 8px;
 }
 
 .tall {
@@ -149,4 +149,12 @@
 .player {
   list-style: none;
   margin-left: -16px;
+}
+
+.side-projects-fixed {
+  position: fixed;
+  width: 100%;
+  top: 100px;
+  background: white;
+  z-index: 1;
 }

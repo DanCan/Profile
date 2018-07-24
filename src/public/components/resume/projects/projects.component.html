@@ -1,13 +1,19 @@
-<div class="card text-black bg-info mb-3 project-header">
+<div class="card text-black bg-info mb-3 project-header"  >
   <div class="card-body">
     <h4 class="card-title">Side Projects</h4>
   </div>
 </div>
-<project-component [projects]="sideProjects"></project-component>
+<div *ngIf="sideProjectsFixed" class="card text-black bg-info mb-3 project-header side-projects-fixed" >
+  <div class="card-body">
+    <h4 class="card-title">Side Projects</h4>
+  </div>
+</div>
+
+<project-component class="side-projects" [projects]="sideProjects"></project-component>
 
 <div class="card text-black bg-info mb-3 project-header">
   <div class="card-body">
     <h4 class="card-title">Course Projects</h4>
   </div>
 </div>
-<project-component [projects]="courseProjects" [carousel-background]="'black'"></project-component>
+<project-component class="course-projects" [projects]="courseProjects" [carousel-background]="'black'"></project-component>

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProjectData, IProject } from './projects.component.d';
 import { LinkDropDown } from '../skills/skills.component.d';
@@ -7,6 +7,7 @@ import { LinkDropDown } from '../skills/skills.component.d';
   selector: 'project-component',
   template: `
   <ng-container *ngFor="let _project of projects; let _i = index">
+  <div class="project-container">
     <h3 class="project-title" id="{{replaceSpaces(_project.title)}}">{{_project.title}}<div class="date-text" [innerHTML]="_project.dates"></div></h3>   
     <div class="row project-skills">
       <div class="project-skill" *ngFor="let _skill of _project.skills">
@@ -40,6 +41,7 @@ import { LinkDropDown } from '../skills/skills.component.d';
         <hr class="gap">
       </div>
     </div>
+  </div>
   </ng-container>`,
   styleUrls: ['./projects.component.css'],
 })
@@ -76,7 +78,7 @@ export class ProjectsComponent implements OnInit {
 
   linkDropDownDictionary: { [skill:string]: number } = {};
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private elmRef: ElementRef) { }
 
   ngOnInit() {
 
@@ -131,19 +133,45 @@ export class ProjectsComponent implements OnInit {
 
     });
 
-    // @HostListener("window:scroll", [])
-    // onWindowScroll() {
-    //   console.log(this._parentHeight, this.headerHeight);
-    //   let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    //   const padding = 30;
-    //   const headerPos = this._parentHeight + this.headerHeight - padding;
-    //   if (number > headerPos) {
-    //     this.showHeader = true;
-    //   } else if (this.showHeader && number < headerPos) {
-    //     this.showHeader = false;
-    //   }
-    // }
+  }
 
+  @Input('offsetHeight')
+	set parentHeight(value) {
+		this._parentHeight = value;
+	}
+	_parentHeight = 0;
+  sideProjectsHeight: number;
+  sideProjectsFixed: boolean = false;
+
+  @HostListener("window:scroll", [])
+  onWindowScroll() {
+    let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    const padding = 30;
+    const headerHeight = 90;
+    const headerPos = this._parentHeight + headerHeight - padding;
+    
+    if (this.sideProjectsHeight === undefined) {
+      this.sideProjectsHeight = 0;
+      for (let elm of this.elmRef.nativeElement.getElementsByClassName('side-projects')[0].children){
+        console.log(elm.offsetHeight);
+        this.sideProjectsHeight += elm.offsetHeight;
+      };
+    }
+
+    if (number > headerPos) {
+      this.sideProjectsFixed = true;
+    }else {
+      this.sideProjectsFixed = false;
+    }
+
+    //TODO make title be fixed or create new one.
+    console.log(number, headerPos);
+    // const headerPos = this._parentHeight + this.headerHeight - padding;
+    // if (number > headerPos) {
+    //   this.showHeader = true;
+    // } else if (this.showHeader && number < headerPos) {
+    //   this.showHeader = false;
+    // }
   }
 
 }

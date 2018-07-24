@@ -1,5 +1,13 @@
 # MyProfileResume
 
+Generates ghpages.
+```
+./node_modules/angular-cli-ghpages/bin/angular-cli-ghpages 
+```
+
+## Angulr Info Below
+---
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
 ## Development server
@@ -13,6 +21,11 @@ Run `ng generate component component-name` to generate a new component. You can 
 ## Build
 
 Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `-prod` flag for a production build.
+
+example:
+```
+$ ng build -prod --base-href="https://you.github.io/Repository/index.html"
+```
 
 ## Running unit tests
 

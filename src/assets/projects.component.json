@@ -77,5 +77,23 @@
         "HTML", "CSS", "JavaScript", "jQuery", "Google Api", "Wiki Api"
       ]
     }
+  ],
+  "flash":[
+    {
+      "title": "Typography",
+      "date": "2012",
+      "host": "foo",
+      "view": "bar",
+      "description": "todo",
+      "todo": ["Settings", "It's pretty"],
+      "images" : [
+        "assets/images/visit1.png",
+        "assets/images/visit2.png"
+      ],
+      "skills": [
+        "AS3", "Structural Development", "File Loading", "Unique Modeling"
+      ]
+
+    }
   ]
 }
