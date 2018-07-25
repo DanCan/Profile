@@ -183,7 +183,7 @@ export class ProjectsComponent implements OnInit {
     }else {
       this.courseProjectsFixed = false;
     }
-    console.log(number, compiledHeight1, this._parentHeight, extra)
+    //console.log(number, compiledHeight1, this._parentHeight)
     //console.log(number, this.sideProjectsHeight, this.courseProjectsHeight);
  
   }
