@@ -143,6 +143,9 @@ export class SkillsComponent implements OnInit {
 
 	headerHeight = 0;
 
+  @Output()
+  skillHeight: EventEmitter<number> = new EventEmitter<number>();
+
 	get skills() {
 		return this.contactsService.skills2 && this.contactsService.skills2['length'] !== 0 ? this.contactsService.skills2[0] : [];
 	}
@@ -150,8 +153,7 @@ export class SkillsComponent implements OnInit {
   @HostListener("window:scroll", [])
   onWindowScroll() {
     let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    const padding = 30;
-    const headerPos = this._parentHeight + this.headerHeight - padding;
+    const headerPos = this._parentHeight - this.headerHeight;
     if (number > headerPos) {
       this.showHeader = true;
     } else if (this.showHeader && number < headerPos) {
@@ -162,7 +164,9 @@ export class SkillsComponent implements OnInit {
   constructor(private contactsService: ContactsService, private elmRef: ElementRef) { }
 
   ngOnInit() {
-		this.headerHeight = this.elmRef.nativeElement.getElementsByClassName('skills-container')[0].offsetHeight;
+    this.headerHeight = this.elmRef.nativeElement.getElementsByClassName('height-fix')[0].offsetHeight;
+    console.log('skils component', this.headerHeight);
+    this.skillHeight.emit(this.headerHeight);
   }
 
   collapse() {

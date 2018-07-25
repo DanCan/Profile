@@ -1,19 +1,32 @@
-<div class="card text-black bg-info mb-3 project-header"  >
-  <div class="card-body">
-    <h4 class="card-title">Side Projects</h4>
+<div #sideProjectElm style="border:1px solid transparent;">
+  <div class="card text-black bg-info mb-3 project-header"  >
+    <div class="card-body">
+      <h4 class="card-title">Global Game Jam <span style="font-size:14px">Projects</span></h4>
+    </div>
   </div>
 </div>
 <div *ngIf="sideProjectsFixed" class="card text-black bg-info mb-3 project-header side-projects-fixed" >
   <div class="card-body">
-    <h4 class="card-title">Side Projects</h4>
+    <h4 class="card-title">Global Game Jam <span style="font-size:14px">Projects</span></h4>
   </div>
 </div>
 
-<project-component class="side-projects" [projects]="sideProjects"></project-component>
+<div class="side-projects" style="border:1px solid transparent;">
+  <project-component [projects]="sideProjects"></project-component>
+</div>
 
-<div class="card text-black bg-info mb-3 project-header">
+<div #courseProjectElm style="border:1px solid transparent;">
+  <div class="card text-black bg-info mb-3 project-header course-projects-header">
+    <div class="card-body">
+      <h4 class="card-title">Course <span style="font-size:14px">Projects</span></h4>
+    </div>
+  </div>
+</div>
+<div *ngIf="courseProjectsFixed" class="card text-black bg-info mb-3 project-header course-projects-fixed">
   <div class="card-body">
-    <h4 class="card-title">Course Projects</h4>
+    <h4 class="card-title">Course <span style="font-size:14px">Projects</span></h4>
   </div>
 </div>
-<project-component class="course-projects" [projects]="courseProjects" [carousel-background]="'black'"></project-component>
+<div class="course-projects" style="border:1px solid transparent;">
+  <project-component [projects]="courseProjects" [carousel-background]="'black'"></project-component>
+</div>

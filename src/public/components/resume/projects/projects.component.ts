@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ElementRef, HostListener } from '@angular/core';
+import { Component, ViewChild, OnInit, Input, ElementRef, HostListener } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { IProjectData, IProject } from './projects.component.d';
 import { LinkDropDown } from '../skills/skills.component.d';
@@ -78,10 +78,16 @@ export class ProjectsComponent implements OnInit {
 
   linkDropDownDictionary: { [skill:string]: number } = {};
 
+  @ViewChild('sideProjectElm') sideProjectElm: ElementRef;
+  @ViewChild('courseProjectElm') courseProjectElm: ElementRef;
+
   constructor(private http: HttpClient, private elmRef: ElementRef) { }
 
-  ngOnInit() {
+  ngAfterViewInit() {
 
+  }
+
+  ngOnInit() {
     this.http.get("assets/projects.component.json")
       .subscribe( res  => {
         this.data = res as IProjectData;
@@ -142,36 +148,50 @@ export class ProjectsComponent implements OnInit {
 	_parentHeight = 0;
   sideProjectsHeight: number;
   sideProjectsFixed: boolean = false;
+  courseProjectsHeight: number;
+  courseProjectsFixed: boolean = false;
 
   @HostListener("window:scroll", [])
   onWindowScroll() {
     let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    const padding = 30;
     const headerHeight = 90;
-    const headerPos = this._parentHeight + headerHeight - padding;
+    const headerPos = this._parentHeight;
     
     if (this.sideProjectsHeight === undefined) {
-      this.sideProjectsHeight = 0;
-      for (let elm of this.elmRef.nativeElement.getElementsByClassName('side-projects')[0].children){
-        console.log(elm.offsetHeight);
-        this.sideProjectsHeight += elm.offsetHeight;
-      };
+      this.sideProjectsHeight = this.elmRef.nativeElement.getElementsByClassName('side-projects')[0].offsetHeight;
     }
 
-    if (number > headerPos) {
+    if (this.courseProjectsHeight === undefined) {
+      this.courseProjectsHeight = this.elmRef.nativeElement.getElementsByClassName('course-projects')[0].offsetHeight;
+    }
+
+    let compiledHeight1 = headerPos;
+    let compiledHeight2 = headerPos + this.sideProjectsHeight + this.sideProjectElm.nativeElement.offsetHeight;
+    if (number > compiledHeight1 && number < compiledHeight2) {
       this.sideProjectsFixed = true;
     }else {
       this.sideProjectsFixed = false;
     }
 
-    //TODO make title be fixed or create new one.
-    console.log(number, headerPos);
-    // const headerPos = this._parentHeight + this.headerHeight - padding;
-    // if (number > headerPos) {
-    //   this.showHeader = true;
-    // } else if (this.showHeader && number < headerPos) {
-    //   this.showHeader = false;
-    // }
+    compiledHeight1 = compiledHeight1 + this.sideProjectsHeight + this.courseProjectElm.nativeElement.offsetHeight;
+    compiledHeight2 = compiledHeight2 + this.courseProjectsHeight;
+   
+    if (number > compiledHeight1 && number < compiledHeight2) {
+      if (number > compiledHeight1) {
+        this.courseProjectsFixed = true;
+      }
+    }else {
+      this.courseProjectsFixed = false;
+    }
+    console.log(number, compiledHeight1, this._parentHeight, extra)
+    //console.log(number, this.sideProjectsHeight, this.courseProjectsHeight);
+ 
   }
 
+  @HostListener("window:resize", [])
+  onWindowResize() {
+    this.sideProjectsHeight = undefined;
+    this.courseProjectsHeight = undefined;
+    this.onWindowScroll();
+  }
 }

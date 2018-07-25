@@ -7,9 +7,15 @@ import { Component, HostListener } from '@angular/core';
 })
 export class AppComponent {
   headerContentHeight = 0;
+  skillsHeight = 0;
 
   @HostListener("window:scroll", [])
   onWindowScroll(){
-    this.headerContentHeight = document.getElementsByClassName('header-content')[0].scrollHeight || 0;
+    this.headerContentHeight = document.getElementsByClassName('height-fix')[0].scrollHeight || 0;
+  }
+
+  setSkillHeight(skillHeight){
+    console.log("skillheight", skillHeight);
+    this.skillsHeight = skillHeight;
   }
 }

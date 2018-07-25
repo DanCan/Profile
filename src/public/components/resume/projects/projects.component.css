@@ -72,6 +72,7 @@
     border-left: 0;
     border-right: 0;
     border-top: 0;
+    min-width: 400px;
 }
 
 .animate {
@@ -152,6 +153,18 @@
 }
 
 .side-projects-fixed {
+  position: fixed;
+  width: 100%;
+  top: 100px;
+  background: white;
+  z-index: 1;
+}
+
+.course-projects-header {
+  z-index: 1;
+}
+
+.course-projects-fixed {
   position: fixed;
   width: 100%;
   top: 100px;
