@@ -11,7 +11,7 @@ export class AppComponent {
 
   @HostListener("window:scroll", [])
   onWindowScroll(){
-    this.headerContentHeight = document.getElementsByClassName('height-fix')[0].scrollHeight || 0;
+    this.headerContentHeight = (document.getElementsByClassName('height-fix')[0] as HTMLElement).offsetHeight || 0;
   }
 
   setSkillHeight(skillHeight){

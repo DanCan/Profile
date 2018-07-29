@@ -171,3 +171,9 @@
   background: white;
   z-index: 1;
 }
+
+/* boostrap overrides */
+.card-body {
+  padding-top: .8em;
+  padding-bottom: .8em;
+}

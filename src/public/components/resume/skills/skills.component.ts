@@ -169,6 +169,11 @@ export class SkillsComponent implements OnInit {
     this.skillHeight.emit(this.headerHeight);
   }
 
+  @HostListener("window:resize", [])
+  onWindowResize() {
+    this.ngOnInit();
+  }
+
   collapse() {
     // get check both buttons for click expanded state
     // click one or both

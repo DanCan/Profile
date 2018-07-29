@@ -1,6 +1,6 @@
 <div>
   <div class="height-fix" style="border:1px solid transparent;">
-    <div class="jumbotron jumbotron-fix">
+    <div class="jumbotron-fix">
       <div class="">
         <div class="header-content pad-sides">
           <resume-header></resume-header>
@@ -12,7 +12,7 @@
   </div>
   <div class="table-default">
     <div class="container">
-      <resume-projects [offsetHeight]="headerContentHeight-skillsHeight+6"></resume-projects>
+      <resume-projects [offsetHeight]="headerContentHeight-skillsHeight" [navHeight]="skillsHeight"></resume-projects>
     </div>
   </div>
   <resume-footer></resume-footer>

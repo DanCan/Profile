@@ -8,8 +8,15 @@ navigate-skill{
 	}
 }
 
+@media (max-height: 450px) {
+  .skill-color-override {
+    padding-top: .8em;
+    padding-bottom: .8em;
+  }
+}
+
 .skills-container {
-  margin: 8px;
+  margin: 0 8px;
   z-index: 2;
 }
 
@@ -31,7 +38,7 @@ navigate-skill{
   background-color: #fafafa;
   z-index: 2;
   width: 100%;
-  padding: 8px;
+  padding: 0 10px;
 }
 
 

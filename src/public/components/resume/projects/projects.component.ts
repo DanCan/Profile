@@ -145,7 +145,14 @@ export class ProjectsComponent implements OnInit {
 	set parentHeight(value) {
 		this._parentHeight = value;
 	}
-	_parentHeight = 0;
+  _parentHeight = 0;
+  
+  @Input('navHeight')
+	set navHeight(value) {
+		this._navHeight = value - 2;
+	}
+  _navHeight = 0;
+  
   sideProjectsHeight: number;
   sideProjectsFixed: boolean = false;
   courseProjectsHeight: number;
@@ -154,7 +161,6 @@ export class ProjectsComponent implements OnInit {
   @HostListener("window:scroll", [])
   onWindowScroll() {
     let number = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    const headerHeight = 90;
     const headerPos = this._parentHeight;
     
     if (this.sideProjectsHeight === undefined) {
