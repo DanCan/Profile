@@ -177,3 +177,9 @@
   padding-top: .8em;
   padding-bottom: .8em;
 }
+
+@media (max-height: 450px) {
+  h4 {
+    height: 10px;
+  }
+}
