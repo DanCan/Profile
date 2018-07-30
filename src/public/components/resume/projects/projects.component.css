@@ -73,12 +73,11 @@
     background-color: white !important;
     border-left: 0;
     border-right: 0;
-    left: -75px;
     min-width: 400px;
+    margin-left: -16px;
 }
 
 .project-header-fix {
-  left: 42px;
   position: fixed;
   width: 100%;
   top: 100px;
