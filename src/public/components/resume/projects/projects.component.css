@@ -73,8 +73,17 @@
     background-color: white !important;
     border-left: 0;
     border-right: 0;
-    /* border-top: 0; */
+    left: -75px;
     min-width: 400px;
+}
+
+.project-header-fix {
+  left: 42px;
+  position: fixed;
+  width: 100%;
+  top: 100px;
+  background: white;
+  z-index: 1;
 }
 
 .animate {
@@ -167,11 +176,7 @@
 }
 
 .course-projects-fixed {
-  position: fixed;
-  width: 100%;
-  top: 100px;
-  background: white;
-  z-index: 1;
+
 }
 
 /* boostrap overrides */
