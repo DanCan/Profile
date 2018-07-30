@@ -27,20 +27,27 @@ import { LinkDropDown } from '../skills/skills.component.d';
             <li [innerHTML]="_item" [class.player]="_item.includes('layer')"></li>
           </ng-container>
         </ul>
-        <div class="btn-group-vertical project-btn-group" data-toggle="buttons">
+        <!--<div class="btn-group-vertical project-btn-group" data-toggle="buttons">
           <input *ngIf="_project.host" type="button" class="btn btn-outline-primary " (click)="openWindow(_project.host)" value="Code & Downloads" />
           <input *ngIf="_project.github" type="button" class="btn btn-outline-primary " (click)="openWindow(_project.github)" value="Github Repository"/>
           <input *ngIf="_project.view" type="button" class="btn btn-outline-success " (click)="openWindow(_project.view)" value="View Now"/>
-        </div>
+        </div>-->
       </div>
 
       <div class="images col-md-4">
         <resume-carousel [id]="_project.title" [images]="_project.images" [backgroundColor]="carouselBackground"></resume-carousel>
       </div>
-      <div *ngIf="_i !== projects.length -1" class="center-content">
-        <hr class="gap">
+
+      <div class="btn-group-vertical project-btn-group" data-toggle="buttons">
+        <input *ngIf="_project.host" type="button" class="btn btn-outline-primary " (click)="openWindow(_project.host)" value="Code & Downloads" />
+        <input *ngIf="_project.github" type="button" class="btn btn-outline-primary " (click)="openWindow(_project.github)" value="Github Repository"/>
+        <input *ngIf="_project.view" type="button" class="btn btn-outline-success " (click)="openWindow(_project.view)" value="View Now"/>
       </div>
     </div>
+  </div>
+
+  <div *ngIf="_i !== projects.length -1" class="center-content">
+    <hr class="gap">
   </div>
   </ng-container>`,
   styleUrls: ['./projects.component.css'],

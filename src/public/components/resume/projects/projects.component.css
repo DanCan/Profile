@@ -39,8 +39,10 @@
 
 .project-btn-group {
   width: 100%;
-  margin-bottom: 16px;
-  
+  margin-bottom: 64px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-flow: row;
 }
 
 .project-title {
@@ -71,7 +73,7 @@
     background-color: white !important;
     border-left: 0;
     border-right: 0;
-    border-top: 0;
+    /* border-top: 0; */
     min-width: 400px;
 }
 

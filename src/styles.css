@@ -30,6 +30,19 @@
   }
 }
 
+@media (max-width: 756px)  {
+  .images {
+    order: 1;
+  }
+  .btn {
+    min-height: 64px;
+  }
+
+  .project-btn-group {
+    order: 0;
+  }
+}
+
 @media (max-width: 575px) {
 
   .center-sides{
